@@ -600,6 +600,9 @@ body.menu-expanded .menu {
   font-weight: 700;
   font-size: 2.5rem;
   line-height: 3rem;
+
+  margin-bottom: 0 !important;
+  padding-left: 0 !important;
 }
 
 .menu ul li a {
