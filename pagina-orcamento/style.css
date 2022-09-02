@@ -1,3 +1,9 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 :root {
   /* FONTES */
   --principal: 'Inter', sans-serif;
@@ -16,8 +22,6 @@ body {
   background-color: #eaeded;
 
   overflow-x: hidden;
-
-  margin: 0;
 }
 
 
@@ -445,7 +449,7 @@ body.menu-expanded .menu {
   .menu {
     transform: translateX(-100%);
     max-width: 30%;
-    margin-top: 237px;
+    margin-top: 185px;
   }
 
   body.menu-expanded .menu {
