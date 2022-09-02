@@ -24,7 +24,7 @@ html {
   font-size: 1.6rem;
   font-family: 'Inter', sans-serif;
 
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 ul {
@@ -583,7 +583,7 @@ body.menu-expanded .menu {
 
   /*=-=-= MENU EXPANDED =-=-=*/
   body.menu-expanded {
-    overflow-y: hidden;
+    overflow: hidden;
   }
 
   body.menu-expanded > :not(.desktop) {
