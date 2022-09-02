@@ -230,11 +230,7 @@ body.menu-expanded .menu {
     display: inherit;
 
     opacity: 0.5;
-    z-index: -1;
-  }
-
-  body.menu-expanded nav.embla {
-    display: none;
+    /* z-index: -1; */
   }
 
   body.menu-expanded .menu {
