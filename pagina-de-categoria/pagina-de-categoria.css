@@ -185,7 +185,7 @@ body.menu-expanded .menu {
     padding: 1.6rem;
   }
 
-  nav .down ul {
+  nav .down ul, nav .down ul p {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -201,7 +201,7 @@ body.menu-expanded .menu {
     line-height: 2.4rem;
   }
 
-  nav .down li.all {
+  nav .down li.all{
     display: flex;
     align-items: center;
     justify-content: center;

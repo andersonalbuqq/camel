@@ -545,7 +545,7 @@ body.menu-expanded .menu {
     padding: 1.6rem;
   }
 
-  nav .down ul {
+  nav .down ul, nav .down ul p {
     display: flex;
     align-items: center;
     justify-content: space-between;

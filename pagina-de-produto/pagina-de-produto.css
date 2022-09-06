@@ -651,11 +651,15 @@ body.menu-expanded .menu {
     padding: 1.6rem;
   }
 
-  nav .down ul {
+  nav .down ul, nav .down ul p {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 5rem;
+  }
+
+  nav .down ul p {
+    margin-bottom: 0;
   }
 
   nav .down a,
