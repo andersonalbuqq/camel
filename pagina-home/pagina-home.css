@@ -520,7 +520,7 @@ footer {
       padding: 16px;
     }
   
-    nav .down ul {
+    nav .down ul, nav .down ul p {
       display: flex;
       align-items: center;
       justify-content: space-between;
