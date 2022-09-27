@@ -546,13 +546,14 @@ nav .search {
 
 nav .search span {
   position: absolute;
-  display: flex;
-  left: 1rem;
+  right: 0;
+  padding-right: 6px;
 }
 
 nav .search input {
   width: 100%;
-  padding: 0.6rem 5rem;
+  padding: 6px !important;
+  font-size: 1.3rem;
 }
 
 /*===== MENU EXPANDED ==================================*/

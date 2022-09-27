@@ -404,29 +404,29 @@ footer {
     width: 35px;
   }
   
-  nav .search {
-    margin-inline: auto;
-  
-    position: relative;
-  
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    width: 80%;
-  }
-  
-  nav .search span {
-    position: absolute;
-    display: flex;
-    left: 10px;
-  }
-  
-  nav .search input {
-    width: 100%;
-    padding: 6px 50px !important;
-    font-size: 1.3rem;
-  }
+ nav .search {
+  margin-inline: auto;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 80%;
+}
+
+nav .search span {
+  position: absolute;
+  right: 0;
+  padding-right: 6px;
+}
+
+nav .search input {
+  width: 100%;
+  padding: 6px !important;
+  font-size: 1.3rem;
+}
   
   /*===== MENU EXPANDED ==================================*/
   body.menu-expanded > :not(.mobile) {
