@@ -50,6 +50,17 @@ main{
   margin: 0 auto;
 }
 
+/* Camada de bloqueio para menu expandido */
+#camada_bloq{
+  height: 100vh;
+  width: 98vw;
+  position: absolute;
+  margin-top: -38px;
+  margin-left: 0px;
+  z-index: 2;
+  display: none;
+}
+
 /* seção de navegação */
 
 #navegacao{

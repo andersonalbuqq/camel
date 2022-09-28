@@ -261,6 +261,17 @@ body.menu-expanded .menu {
 
 /* === CETEGORIES PAGE ================================*/
 
+/* Camada de bloqueio para menu expandido */
+#camada_bloq{
+  height: 100vh;
+  width: 98vw;
+  position: absolute;
+  margin-top: 186px;
+  margin-left: 0px;
+  z-index: 2;
+  display: none;
+}
+
 /* === NAVIGATION HISTORIC ================================*/
 .historic {
   font-weight: 700;
