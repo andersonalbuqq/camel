@@ -60,10 +60,15 @@ main {
     background-color: var(--cor7);
 }
 
-#main_container{
-    width: 100%;
-    max-width: 1200px;
-    padding-top: 35px;
+/* Camada de bloqueio para menu expandido */
+#camada_bloq{
+  height: 100vh;
+  width: 98vw;
+  position: absolute;
+  margin-top: -48px;
+  margin-left: -4px;
+  z-index: 2;
+  display: none;
 }
 
 /* responsividade */
@@ -93,6 +98,10 @@ main {
     border-radius: 10px;
     width: 50vw;
     max-width: 400px;
+}
+
+.carousel-indicators {
+  z-index: 1;
 }
 
 /* configurações do carrossel de categorias usando splideJs */
@@ -578,7 +587,7 @@ nav .search input {
   
       padding-inline: 200px;
       max-width: fit-content;
-      height: 700px;
+      height: calc(100vh - 182px);
   
       opacity: 1;
       z-index: 1;
