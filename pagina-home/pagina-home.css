@@ -570,7 +570,7 @@ nav .search input {
   
     /*===== MENU EXPANDED ==================================*/
     body.menu-expanded {
-      overflow-y: hidden;
+      overflow: hidden;
       
     }
   
