@@ -1,39 +1,24 @@
-header .mobile {
-  height: 15rem;
-  width: 100%;
-  padding: 1.6rem;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-
-  background-color: var(--gray);
+header .desktop,
+header .closeMenu {
+  display: none;
 }
 
-header .mobile .top {
+header .top {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-header .mobile .top .closeMenu {
-  display: none;
-}
-
-header .mobile .top .logo {
-  width: 8rem;
-}
-
-header .mobile .top .user {
+header .top .user {
   position: relative;
 }
 
-header .mobile .top .user summary {
+header .top .user summary {
   list-style: none;
   cursor: pointer;
 }
 
-header .mobile .top .user .userMenu::before {
+header .top .user .userMenu::before {
   content: "";
   display: block;
 
@@ -46,7 +31,7 @@ header .mobile .top .user .userMenu::before {
   border-bottom: 25px solid var(--gray);
 }
 
-header .mobile .top .user .userMenu {
+header .top .user .userMenu {
   position: absolute;
   top: 13rem;
   right: 1rem;
@@ -61,19 +46,19 @@ header .mobile .top .user .userMenu {
   border-radius: 1rem;
 }
 
-header .mobile .top .user .userMenu ul {
+header .top .user .userMenu ul {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-header .mobile .top .user .userMenu ul li {
+header .top .user .userMenu ul li a {
   display: flex;
   align-items: center;
   gap: 3rem;
 }
 
-header .mobile .top .user .userMenu button {
+header .top .user .userMenu button {
   text-transform: uppercase;
   letter-spacing: 0.3rem;
   text-align: center;
@@ -84,7 +69,7 @@ header .mobile .top .user .userMenu button {
   border-radius: 0.5rem;
 }
 
-header .mobile .searchBar {
+header .searchBar {
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -93,15 +78,31 @@ header .mobile .searchBar {
 
   width: 100%;
   background-color: #fff;
-  padding: 0.5rem 1rem;
+  padding: 0.6rem 1.2rem;
   border-radius: 0.2rem;
 }
 
-header .mobile .searchBar input {
+header .searchBar input {
   background: none;
   border: none;
   outline: none;
   width: 100%;
+}
+
+header .mobile {
+  height: 15rem;
+  width: 100%;
+  padding: 1.6rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  background-color: var(--gray);
+}
+
+header .mobile .top .logo {
+  width: 8rem;
 }
 
 header .drawer {
@@ -123,6 +124,7 @@ header .drawer ul {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 5rem;
 
   height: 100%;
@@ -137,4 +139,71 @@ header .drawer ul li {
 
 header .drawer.show {
   left: 0;
+}
+
+@media (min-width: 1024px) {
+  header .mobile {
+    display: none;
+  }
+
+  header .desktop {
+    display: inherit;
+  }
+
+  header .desktop .top {
+    background-color: var(--gray);
+    padding: 3.2rem 1.6rem;
+  }
+
+  header .desktop .bottom {
+    background-color: var(--orange);
+    padding: 0.5rem 1.6rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+  }
+
+  header .desktop .top .logo {
+    width: 10rem;
+  }
+
+  header .desktop .top .searchBar {
+    width: 60%;
+    padding: 0.6rem 1.2rem;
+  }
+
+  header .desktop .top .user summary img {
+    width: 4rem;
+  }
+
+  header .top .user .userMenu {
+    top: 10rem;
+    right: 0rem;
+  }
+
+  header .desktop .bottom button {
+    color: var(--white);
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  header .desktop .bottom .closeMenu {
+    display: none;
+  }
+
+  header .desktop .bottom ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  header .drawer {
+    width: 40%;
+  }
 }
