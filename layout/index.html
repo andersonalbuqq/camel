@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Layout Base</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./css/global.css" />
+  </head>
+  <body>
+    <header>
+      <div class="mobile">
+        <div class="top">
+          <button
+            aria-expanded="false"
+            aria-label="Abrir menu"
+            class="openMenu"
+            onclick="menu()"
+          >
+            <img
+              src="../assets/images/svg/openMenu.svg"
+              alt="Ícone de abrir o menu"
+            />
+          </button>
+
+          <button
+            aria-expanded="true"
+            aria-label="Fechar menu"
+            class="closeMenu"
+            onclick="menu()"
+          >
+            <img
+              src="../assets/images/svg/closeMenu.svg"
+              alt="Ícone de fechar o menu"
+            />
+          </button>
+
+          <a href="../index.html">
+            <img
+              class="logo"
+              src="../assets/images/logo.png"
+              alt="Logo da Camel"
+            />
+          </a>
+
+          <details class="user">
+            <summary>
+              <img src="../assets/images/svg/userIcon.svg" alt="userMenu" />
+            </summary>
+            <div class="userMenu">
+              <ul>
+                <li>
+                  <img
+                    src="../assets/images/svg/myProfile.svg"
+                    alt="Ícone da opção meu perfil"
+                  />
+                  <a href="">Meu Perfil</a>
+                </li>
+                <li>
+                  <img
+                    src="../assets/images/svg/myCar.svg"
+                    alt="Ícone da opção meu carrinho"
+                  />
+                  <a href="">Meu Carrinho</a>
+                </li>
+                <li>
+                  <img
+                    src="../assets/images/svg/logout.svg"
+                    alt="Ícone da opção sair da conta"
+                  />
+                  <a href="">Sair da Conta</a>
+                </li>
+              </ul>
+              <button><a href="">Entrar</a></button>
+            </div>
+          </details>
+        </div>
+
+        <div class="searchBar">
+          <img src="../assets/images/svg/search.svg" alt="Lupa de pesquisa" />
+          <input type="text" placeholder="Procure na Camel" />
+        </div>
+      </div>
+
+      <div class="drawer">
+        <ul>
+          <li>Categoria 01</li>
+          <li>Categoria 02</li>
+          <li>Categoria 03</li>
+          <li>Categoria 04</li>
+          <li>Categoria 05</li>
+          <li>Categoria 06</li>
+          <li>Categoria 08</li>
+          <li>Categoria 09</li>
+          <li>Categoria 10</li>
+        </ul>
+      </div>
+    </header>
+
+    <main></main>
+
+    <footer></footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

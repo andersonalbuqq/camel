@@ -1,0 +1,94 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  scrollbar-gutter: stable;
+}
+
+main {
+  margin-top: 150px;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  padding-bottom: 5px;
+  font-size: 1.5em;
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0px auto;
+  border: 1px solid green;
+  padding: 16px;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  background-color: orange;
+  padding: 16px;
+}
+
+.drawer {
+  left: -300px;
+  top: 0;
+
+  z-index: 999;
+  position: fixed;
+  height: 100vh;
+  width: 300px;
+  background-color: red;
+  transition: 0.5s;
+  box-shadow: 0 8px 10px -5px rgb(0 0 0 / 20%), 0 16px 24px 2px rgb(0 0 0 / 14%),
+    0 6px 30px 5px rgb(0 0 0 / 12%);
+}
+
+.drawer.show {
+  left: 0;
+}
+
+.drawer > .drawer__header {
+  width: 100%;
+  height: 100px;
+  padding: 16px;
+}
+
+.drawer > .drawer__content {
+  overflow-y: auto;
+  width: 100%;
+  height: calc(100% - 200px);
+  padding: 16px;
+}
+
+.drawer > .drawer__footer {
+  width: 100%;
+  height: 100px;
+  padding: 16px;
+}
+
+.overlay {
+  position: fixed;
+  z-index: 998;
+  background-color: rgba(128, 128, 128, 0.623);
+  opacity: 0;
+  transition: 1s;
+}
+
+.overlay.show {
+  width: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  opacity: 1;
+}

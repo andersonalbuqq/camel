@@ -1,0 +1,140 @@
+header .mobile {
+  height: 15rem;
+  width: 100%;
+  padding: 1.6rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  background-color: var(--gray);
+}
+
+header .mobile .top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header .mobile .top .closeMenu {
+  display: none;
+}
+
+header .mobile .top .logo {
+  width: 8rem;
+}
+
+header .mobile .top .user {
+  position: relative;
+}
+
+header .mobile .top .user summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+header .mobile .top .user .userMenu::before {
+  content: "";
+  display: block;
+
+  position: absolute;
+  top: -1rem;
+  right: 0;
+
+  border-left: 25px solid transparent;
+  border-right: 25px solid transparent;
+  border-bottom: 25px solid var(--gray);
+}
+
+header .mobile .top .user .userMenu {
+  position: absolute;
+  top: 13rem;
+  right: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+
+  background-color: var(--gray);
+  width: 20rem;
+  padding: 3rem 2rem;
+  border-radius: 1rem;
+}
+
+header .mobile .top .user .userMenu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+header .mobile .top .user .userMenu ul li {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+header .mobile .top .user .userMenu button {
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
+  text-align: center;
+  font-weight: 700;
+
+  background-color: var(--orange);
+  height: 3rem;
+  border-radius: 0.5rem;
+}
+
+header .mobile .searchBar {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  width: 100%;
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.2rem;
+}
+
+header .mobile .searchBar input {
+  background: none;
+  border: none;
+  outline: none;
+  width: 100%;
+}
+
+header .drawer {
+  left: -100%;
+
+  height: calc(100vh - 15rem);
+  width: 100%;
+  background-color: var(--orange);
+  /* box-shadow: 0 8px 10px -5px rgb(0 0 0 / 20%), 0 16px 24px 2px rgb(0 0 0 / 14%),
+    0 6px 30px 5px rgb(0 0 0 / 12%); */
+
+  z-index: 999;
+  position: fixed;
+  transition: 0.5s;
+  overflow-y: auto;
+}
+
+header .drawer ul {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+
+  height: 100%;
+  margin-block: 5rem;
+}
+
+header .drawer ul li {
+  color: var(--white);
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+header .drawer.show {
+  left: 0;
+}

@@ -22,7 +22,7 @@ html {
   background-color: var(--bg-primary-color);
 
   font-size: 1.6rem;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 
   /* overflow-x: hidden; */
 }
@@ -186,7 +186,8 @@ body.menu-expanded .menu {
     padding: 1.6rem;
   }
 
-  nav .down ul, nav .down ul p {
+  nav .down ul,
+  nav .down ul p {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -202,7 +203,7 @@ body.menu-expanded .menu {
     line-height: 2.4rem;
   }
 
-  nav .down li.all{
+  nav .down li.all {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -262,7 +263,7 @@ body.menu-expanded .menu {
 /* === CETEGORIES PAGE ================================*/
 
 /* Camada de bloqueio para menu expandido */
-#camada_bloq{
+#camada_bloq {
   height: 100vh;
   width: 98vw;
   position: absolute;
@@ -320,7 +321,7 @@ header p {
   font-size: 1rem;
   line-height: 1.5rem;
   color: hsl(39, 96%, 48%);
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 
   opacity: 0.5;
 }
@@ -425,7 +426,7 @@ main ul a li p.price {
 
   /* FOCUS */
   .splide__slide.is-active {
-    border-bottom: .3rem solid hsl(39, 96%, 48%);
+    border-bottom: 0.3rem solid hsl(39, 96%, 48%);
     padding-bottom: 1rem;
   }
 
@@ -492,7 +493,6 @@ footer .down {
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  
 
   margin-block: 1.5rem;
 }
