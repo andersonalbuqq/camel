@@ -152,7 +152,10 @@ header .drawer.show {
 
   header .desktop .top {
     background-color: var(--gray);
-    padding: 3.2rem 1.6rem;
+    padding: 3rem 1.6rem;
+
+    justify-content: center;
+    gap: 10rem;
   }
 
   header .desktop .bottom {
