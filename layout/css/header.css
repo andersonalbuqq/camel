@@ -106,6 +106,7 @@ header .mobile .top .logo {
 }
 
 header .drawer {
+  position: fixed;
   left: -100%;
 
   height: calc(100vh - 15rem);
@@ -115,20 +116,19 @@ header .drawer {
     0 6px 30px 5px rgb(0 0 0 / 12%); */
 
   z-index: 999;
-  position: fixed;
   transition: 0.5s;
   overflow-y: auto;
+}
+
+header .drawer .categories {
+  padding-block: 2.5rem;
 }
 
 header .drawer ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: 5rem;
-
-  height: 100%;
-  margin-block: 5rem;
 }
 
 header .drawer ul li {
@@ -204,6 +204,48 @@ header .drawer.show {
   }
 
   header .drawer {
-    width: 40%;
+    background: none;
+    width: fit-content;
+    height: 100vh;
+
+    top: 0;
+
+    display: flex;
+    gap: 1rem;
+  }
+
+  header .drawer .categories {
+    background-color: var(--orange);
+    width: 50rem;
+
+    overflow-y: auto;
+  }
+
+  header .drawer .categories ul {
+    margin-block: 1rem;
+  }
+
+  header .drawer .closeMenu {
+    display: inherit;
+  }
+
+  .overlay {
+    position: fixed;
+    z-index: 998;
+    opacity: 0;
+    transition: 1s;
+
+    background-color: hsla(0, 0%, 50%, 0.5);
+  }
+
+  .overlay.show {
+    height: 100vh;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    opacity: 1;
   }
 }
