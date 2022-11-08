@@ -33,3 +33,11 @@ main .brands ul li a span {
   color: var(--black);
   text-transform: uppercase;
 }
+
+@media (min-width: 1024px) {
+  main .brands {
+    width: 75%;
+    padding: 2.4rem;
+    border-radius: 1rem;
+  }
+}

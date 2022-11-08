@@ -40,3 +40,11 @@ main .categories ul li a span {
 
   height: 4rem;
 }
+
+@media (min-width: 1024px) {
+  main .categories {
+    width: 75%;
+    padding: 2.4rem;
+    border-radius: 1rem;
+  }
+}

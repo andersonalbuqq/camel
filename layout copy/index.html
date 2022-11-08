@@ -337,7 +337,7 @@
       <section class="emphasisProducts">
         <h2>Produtos em Destaque</h2>
         <ul>
-          <li class="col-A">
+          <li>
             <a href="">
               <div class="imageContainer">
                 <img
@@ -352,7 +352,22 @@
               </div>
             </a>
           </li>
-          <li class="col-A">
+          <li>
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="../assets/images/home/products/lampada.png"
+                  alt="Imagem de uma lampada"
+                />
+              </div>
+              <span class="productName">Lâmpada Fluorescente</span>
+              <div class="price">
+                <span class="productPrice">R$ 100</span>
+                <span class="promotionProductPrice">R$ 80</span>
+              </div>
+            </a>
+          </li>
+          <li class="r768">
             <a href="">
               <div class="imageContainer">
                 <img
@@ -383,6 +398,21 @@
             </a>
           </li>
           <li>
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="../assets/images/home/products/disjuntor.png"
+                  alt="Imagem de um disjuntor"
+                />
+              </div>
+              <span class="productName">Disjuntor DIN</span>
+              <div class="price">
+                <span class="productPrice">R$ 200</span>
+                <span class="promotionProductPrice">R$ 120</span>
+              </div>
+            </a>
+          </li>
+          <li class="r768">
             <a href="">
               <div class="imageContainer">
                 <img
@@ -437,6 +467,24 @@
                 alt="Logo da saveenergy"
               />
               <span>SAVEENERGY</span>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="">
+              <img
+                src="../assets/images/home/brands/legrand.jpg"
+                alt="Logo da legrand"
+              />
+              <span>LEGRAND</span>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="">
+              <img
+                src="../assets/images/home/brands/gmhtrade.jpg"
+                alt="Logo da gmhtrade"
+              />
+              <span>GMHTRADE</span>
             </a>
           </li>
         </ul>
@@ -500,8 +548,14 @@
           320: {
             slidesPerView: 2,
           },
+          425: {
+            slidesPerView: 3,
+          },
           768: {
-            slidesPerView: 4,
+            slidesPerView: 5,
+          },
+          1440: {
+            slidesPerView: 8,
           },
         },
         scrollbar: {
@@ -509,6 +563,7 @@
           hide: true,
         },
         freeMode: true,
+        cssMode: true,
       }
 
       const categoriesSwiper = new Swiper(

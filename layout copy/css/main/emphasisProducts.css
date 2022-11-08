@@ -57,3 +57,29 @@ main .emphasisProducts ul li a .price .productPrice {
 main .emphasisProducts ul li a .price .promotionProductPrice {
   color: var(--orange);
 }
+
+@media (max-width: 425px) {
+  main .emphasisProducts ul li.r768 {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) {
+  main .emphasisProducts ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  main .emphasisProducts {
+    width: 75%;
+    padding: 2.4rem;
+    border-radius: 1rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  main .emphasisProducts ul {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
