@@ -1,0 +1,9 @@
+main .publicity {
+  width: 100%;
+  text-align: center;
+}
+
+main .publicity ul li img {
+  width: 20rem;
+  border-radius: 1rem;
+}
