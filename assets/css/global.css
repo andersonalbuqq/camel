@@ -1,6 +1,6 @@
 @import url(./header.css);
 @import url(./footer.css);
-@import url(./main/main.css);
+@import url(./main.css);
 
 * {
   margin: 0;

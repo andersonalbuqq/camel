@@ -1,442 +1,589 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CAMEL</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap"
+      rel="stylesheet"
+    />
 
-  <link rel="shortcut icon" href="assets/imagens/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="./home/style.css" />
 
-  <!-- Config Splide -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/css/splide.min.css">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <div class="mobile">
+        <div class="top">
+          <button
+            aria-expanded="false"
+            aria-label="Abrir menu"
+            class="openMenu"
+            onclick="menu()"
+          >
+            <img
+              src="./assets/images/svg/header/openMenu.svg"
+              alt="Ícone de abrir o menu"
+            />
+          </button>
 
-  <!-- Config footer -->
+          <button
+            aria-expanded="true"
+            aria-label="Fechar menu"
+            class="closeMenu"
+            onclick="menu()"
+          >
+            <img
+              src="./assets/images/svg/header/closeMenu.svg"
+              alt="Ícone de fechar o menu"
+            />
+          </button>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-  <script src="https://kit.fontawesome.com/0054bfb566.js" crossorigin="anonymous"></script>
+          <a href="./index.html">
+            <img
+              class="logo"
+              src="./assets/images/logo.png"
+              alt="Logo da Camel"
+            />
+          </a>
 
-  <!-- Adicionando o Bootstrap -->
+          <details class="user">
+            <summary>
+              <img
+                src="./assets/images/svg/header/userIcon.svg"
+                alt="userMenu"
+              />
+            </summary>
+            <div class="userMenu">
+              <ul>
+                <li>
+                  <a href="">
+                    <img
+                      src="./assets/images/svg/header/myProfile.svg"
+                      alt="Ícone da opção meu perfil"
+                    />
+                    <span>Meu Perfil</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <img
+                      src="./assets/images/svg/header/myCar.svg"
+                      alt="Ícone da opção meu carrinho"
+                    />
+                    <span>Meu Carrinho</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <img
+                      src="./assets/images/svg/header/logout.svg"
+                      alt="Ícone da opção sair da conta"
+                    />
+                    <span>Sair da Conta</span>
+                  </a>
+                </li>
+              </ul>
+              <button><a href="">Entrar</a></button>
+            </div>
+          </details>
+        </div>
 
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-  <!-- Arquivos de CSS -->
-
-  <link rel="stylesheet" href="assets/css/style.css">
-
-</head>
-
-<body>
-
-  <!-- Cabeçalho da página -->
-  <nav class="desktop">
-    <div class="top">
-      <a onclick="closeMenu()" href="index.html">
-        <img class="logo" src="assets/imagens/logocamel.png" alt="Logo da camel" />
-      </a>
-
-      <div class="search">
-        <span><img src="assets/imagens/search.png" alt="icone de uma lupa" /></span>
-        <input type="text" placeholder="Procure na Camel" />
+        <div class="searchBar">
+          <img
+            src="./assets/images/svg/header/searcherLoupe.svg"
+            alt="Lupa de pesquisa"
+          />
+          <input type="text" placeholder="Procure na Camel" />
+        </div>
       </div>
 
-      <a onclick="closeMenu()" href="carrinho">
-        <img class="shopping-cart" src="assets/imagens/carrinho-de-compras.png" alt="Imagem de carrinho de compras" />
-      </a>
-    </div>
+      <div class="desktop">
+        <div class="top">
+          <a href="./index.html">
+            <img
+              class="logo"
+              src="./assets/images/logo.png"
+              alt="Logo da Camel"
+            />
+          </a>
 
-    <div class="down">
-      <ul>
-        <li class="all">
-          <button aria-expanded="false" aria-label="Abrir menu" onclick="openMenu()" class="open-menu">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M35 20H15" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M35 12H15" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M27 28L15 28" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
+          <div class="searchBar">
+            <img
+              src="./assets/images/svg/header/searcherLoupe.svg"
+              alt="Lupa de pesquisa"
+            />
+            <input type="text" placeholder="Procure na Camel" />
+          </div>
+
+          <details class="user">
+            <summary>
+              <img
+                src="./assets/images/svg/header/userIcon.svg"
+                alt="userMenu"
+              />
+            </summary>
+            <div class="userMenu">
+              <ul>
+                <li>
+                  <a href="">
+                    <img
+                      src="./assets/images/svg/header/myProfile.svg"
+                      alt="Ícone da opção meu perfil"
+                    />
+                    <span>Meu Perfil</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <img
+                      src="./assets/images/svg/header//myCar.svg"
+                      alt="Ícone da opção meu carrinho"
+                    />
+                    <span>Meu Carrinho</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="">
+                    <img
+                      src="./assets/images/svg/header/logout.svg"
+                      alt="Ícone da opção sair da conta"
+                    />
+                    <span>Sair da Conta</span>
+                  </a>
+                </li>
+              </ul>
+              <button><a href="">Entrar</a></button>
+            </div>
+          </details>
+        </div>
+
+        <div class="bottom">
+          <button
+            aria-expanded="false"
+            aria-label="Abrir menu"
+            class="openMenu"
+            onclick="menu()"
+          >
+            <img
+              src="./assets/images/svg/header/openMenu.svg"
+              alt="Ícone de abrir o menu"
+            />
+            <span>Todos</span>
           </button>
 
-          <button aria-expanded="true" aria-label="Fechar menu" onclick="closeMenu()" class="close-menu">
-            <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M30 10L10 30M10 10L30 30" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
+          <ul>
+            <li><a href="">Categoria 01</a></li>
+            <li><a href="">Categoria 02</a></li>
+            <li><a href="">Categoria 03</a></li>
+            <li><a href="">Categoria 04</a></li>
+            <li><a href="">Categoria 05</a></li>
+            <li><a href="">Categoria 06</a></li>
+          </ul>
+        </div>
+      </div>
 
-          <p onclick="menu()">Todos</p>
-          <!-- Todos -->
+      <div class="drawer">
+        <div class="categories">
+          <ul>
+            <li>Categoria 01</li>
+            <li>Categoria 02</li>
+            <li>Categoria 03</li>
+            <li>Categoria 04</li>
+            <li>Categoria 05</li>
+            <li>Categoria 06</li>
+            <li>Categoria 08</li>
+            <li>Categoria 09</li>
+            <li>Categoria 10</li>
+            <li>Categoria 11</li>
+            <li>Categoria 12</li>
+            <li>Categoria 13</li>
+            <li>Categoria 14</li>
+            <li>Categoria 15</li>
+            <li>Categoria 16</li>
+            <li>Categoria 17</li>
+          </ul>
+        </div>
+        <button
+          aria-expanded="true"
+          aria-label="Fechar menu"
+          class="closeMenu"
+          onclick="menu()"
+        >
+          <img
+            src="./assets/images/svg/header/closeMenu.svg"
+            alt="Ícone de fechar o menu"
+          />
+        </button>
+      </div>
+    </header>
 
+    <div class="overlay" onclick="menu()"></div>
+
+    <main>
+      <section class="publicity swiper">
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide">
+            <img
+              src="./assets/images/home/publicity/publi1.jpg"
+              alt="Imagem publicitária"
+            />
+          </li>
+          <li class="swiper-slide">
+            <img
+              src="./assets/images/home/publicity/publi2.jpg"
+              alt="Imagem publicitária"
+            />
+          </li>
+          <li class="swiper-slide">
+            <img
+              src="./assets/images/home/publicity/publi3.jpg"
+              alt="Imagem publicitária"
+            />
+          </li>
+          <li class="swiper-slide">
+            <img
+              src="./assets/images/home/publicity/publi4.jpg"
+              alt="Imagem publicitária"
+            />
+          </li>
+        </ul>
+      </section>
+
+      <section class="categories swiper">
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="./assets/images/home/categories/fiosCabos.png"
+                  alt="Imagem de fios e cabos"
+                />
+              </div>
+              <span>Fios e Cabos</span>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="./assets/images/home/categories/iluminacao.png"
+                  alt="Imagem de uma lâmpada"
+                />
+              </div>
+              <span>Iluminação</span>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="./assets/images/home/categories/seguranca.png"
+                  alt="Imagem de um disnjuntor"
+                />
+              </div>
+              <span>Segurança</span>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="./assets/images/home/categories/tomadasInterruptores.png"
+                  alt="Imagem de uma tomada e um interuptor"
+                />
+              </div>
+              <span>Tomadas e Interruptores</span>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="./assets/images/home/categories/tubosConexoes.png"
+                  alt="Imagem de um tubo elétrico"
+                />
+              </div>
+              <span>Tubos e Conexões</span>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="./assets/images/home/categories/ferramentasFerragens.png"
+                  alt="Imagem de um alicate"
+                />
+              </div>
+              <span>Ferramentas e Feragens</span>
+            </a>
+          </li>
+        </ul>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
+      </section>
+
+      <section class="emphasisProducts">
+        <h2>Produtos em Destaque</h2>
+        <ul>
+          <li>
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="./assets/images/home/products/lampada.png"
+                  alt="Imagem de uma lampada"
+                />
+              </div>
+              <span class="productName">Lâmpada Fluorescente</span>
+              <div class="price">
+                <span class="productPrice">R$ 100</span>
+                <span class="promotionProductPrice">R$ 80</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="./assets/images/home/products/lampada.png"
+                  alt="Imagem de uma lampada"
+                />
+              </div>
+              <span class="productName">Lâmpada Fluorescente</span>
+              <div class="price">
+                <span class="productPrice">R$ 100</span>
+                <span class="promotionProductPrice">R$ 80</span>
+              </div>
+            </a>
+          </li>
+          <li class="r768">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="./assets/images/home/products/lampada.png"
+                  alt="Imagem de uma lampada"
+                />
+              </div>
+              <span class="productName">Lâmpada Fluorescente</span>
+              <div class="price">
+                <span class="productPrice">R$ 100</span>
+                <span class="promotionProductPrice">R$ 80</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="./assets/images/home/products/disjuntor.png"
+                  alt="Imagem de um disjuntor"
+                />
+              </div>
+              <span class="productName">Disjuntor DIN</span>
+              <div class="price">
+                <span class="productPrice">R$ 200</span>
+                <span class="promotionProductPrice">R$ 120</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="./assets/images/home/products/disjuntor.png"
+                  alt="Imagem de um disjuntor"
+                />
+              </div>
+              <span class="productName">Disjuntor DIN</span>
+              <div class="price">
+                <span class="productPrice">R$ 200</span>
+                <span class="promotionProductPrice">R$ 120</span>
+              </div>
+            </a>
+          </li>
+          <li class="r768">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="./assets/images/home/products/disjuntor.png"
+                  alt="Imagem de um disjuntor"
+                />
+              </div>
+              <span class="productName">Disjuntor DIN</span>
+              <div class="price">
+                <span class="productPrice">R$ 200</span>
+                <span class="promotionProductPrice">R$ 120</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="brands swiper">
+        <h2>Compre por Marca</h2>
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide">
+            <a href="">
+              <img
+                src="./assets/images/home/brands//weg.png"
+                alt="Logo da weg"
+              />
+              <span>WEG</span>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="">
+              <img
+                src="./assets/images/home/brands/steck.png"
+                alt="Logo da stack"
+              />
+              <span>STACK</span>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="">
+              <img
+                src="./assets/images/home/brands/schneider.png"
+                alt="Logo da schneider"
+              />
+              <span>SCHNEIDER</span>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="">
+              <img
+                src="./assets/images/home/brands/saveenergy.png"
+                alt="Logo da saveenergy"
+              />
+              <span>SAVEENERGY</span>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="">
+              <img
+                src="./assets/images/home/brands/legrand.jpg"
+                alt="Logo da legrand"
+              />
+              <span>LEGRAND</span>
+            </a>
+          </li>
+          <li class="swiper-slide">
+            <a href="">
+              <img
+                src="./assets/images/home/brands/gmhtrade.jpg"
+                alt="Logo da gmhtrade"
+              />
+              <span>GMHTRADE</span>
+            </a>
+          </li>
+        </ul>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="top">
+        <img src="./assets/images/logo.png" alt="Logo da Camel" />
+        <p>
+          ©2022 - CAMEL ELETRICIDADE. <br /><br />
+          Todos os direitos reservados.
+        </p>
+      </div>
+      <ul class="bottom">
+        <li>
+          <a href=""
+            ><img
+              src="./assets/images/svg/footer/maps.svg"
+              alt="Ícone para acessar localização"
+          /></a>
         </li>
-        <li class="emphasis_categories">
-          <a href="#">Categoria 1</a>
-          <a href="#">Categoria 2</a>
-          <a href="#">Categoria 3</a>
-          <a href="#">Categoria 4</a>
-          <a href="#">Categoria 5</a>
+        <li>
+          <a href=""
+            ><img
+              src="./assets/images/svg/footer/instagram.svg"
+              alt="Ícone para acessar instagram"
+          /></a>
+        </li>
+        <li>
+          <a href=""
+            ><img
+              src="./assets/images/svg/footer/facebook.svg"
+              alt="Ícone para acessar facebook"
+          /></a>
+        </li>
+        <li>
+          <a href=""
+            ><img
+              src="./assets/images/svg/footer/whatsapp.svg"
+              alt="Ícone para acessar whatsapp"
+          /></a>
         </li>
       </ul>
-    </div>
-  </nav>
+    </footer>
 
-  <nav class="mobile">
-    <div class="top">
-      <button aria-expanded="false" aria-label="Abrir menu" onclick="openMenu()" class="open-menu">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M35 20H15" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M35 12H15" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-          <path d="M27 28L15 28" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </button>
+    <script src="./assets/js/script.js"></script>
 
-      <button aria-expanded="true" aria-label="Fechar menu" onclick="closeMenu()" class="close-menu">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M30 10L10 30M10 10L30 30" stroke="#F2F2F2" stroke-width="2" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-      </button>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
-      <a onclick="closeMenu()" href="index.html">
-        <img class="logo" src="assets/imagens/LogoCamel.png" alt="Logo da camel" />
-      </a>
+    <script>
+      const configurationSwiper = {
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 2,
+          },
+          425: {
+            slidesPerView: 3,
+          },
+          768: {
+            slidesPerView: 5,
+          },
+          1440: {
+            slidesPerView: 8,
+          },
+        },
+        scrollbar: {
+          el: ".swiper-scrollbar",
+          hide: true,
+        },
+        freeMode: true,
+        cssMode: true,
+      }
 
-      <a onclick="closeMenu()" href="carrinho">
-        <img class="shopping-cart" src="assets/imagens/carrinho-de-compras.png" alt="Imagem de carrinho de compras" />
-      </a>
-    </div>
+      const categoriesSwiper = new Swiper(
+        "main .categories.swiper",
+        configurationSwiper
+      )
 
-    <div class="search">
-      <span><img src="assets/imagens/search.png" alt="icone de uma lupa" /></span>
-      <input type="text" placeholder="Procure na Camel" />
-    </div>
-  </nav>
+      const brandsSwiper = new Swiper(
+        "main .brands.swiper",
+        configurationSwiper
+      )
 
-  <div class="menu">
-    <ul>
-      <li><a href="#">Categoria 1</a></li>
-      <li><a href="#">Categoria 2</a></li>
-      <li><a href="#">Categoria 3</a></li>
-      <li><a href="#">Categoria 4</a></li>
-      <li><a href="#">Categoria 5</a></li>
-      <li><a href="#">Categoria 6</a></li>
-      <li><a href="#">Categoria 7</a></li>
-      <li><a href="#">Categoria 8</a></li>
-      <li><a href="#">Categoria 9</a></li>
-      <li><a href="#">Categoria 10</a></li>
-    </ul>
-  </div>
-
-  <main>
-    <div id="camada_bloq" onclick="closeMenu()">
-    </div>
-    <div id="main_container">
-
-      <!-- publicidades -->
-      <section class="alinhar">
-        <div id="publi" class="carousel slide" data-ride="carousel">
-          <ol class="carousel-indicators">
-            <li data-target="#publi" data-slide-to="0" class="active"></li>
-            <li data-target="#publi" data-slide-to="1"></li>
-            <li data-target="#publi" data-slide-to="2"></li>
-            <li data-target="#publi" data-slide-to="3"></li>
-          </ol>
-          <div class="carousel-inner publi_config">
-            <div class="carousel-item active">
-              <img class="d-block w-100" src="assets/imagens/img1.jpg" alt="First slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="assets/imagens/img2.jpg" alt="Second slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="assets/imagens/img3.jpg" alt="Third slide">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-100" src="assets/imagens/img4.jpg" alt="Fourth slide">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Categorias Splide -->
-      <section id="splide1" class="splide mx-sm-5 my-5 raio fundo p-2" aria-label="Splide1">
-        <div class="splide__track">
-          <ul class="splide__list py-3 py-sm-5">
-            <li class="splide__slide splide1">
-              <a href="#">
-                <img src="assets/imagens/cat1.png" alt="">
-                <p class="py-2">Lâmpada</p>
-              </a>
-            </li>
-            <li class="splide__slide splide1">
-              <a href="#">
-                <img src="assets/imagens/cat2.png" alt="">
-                <p class="py-2">Fios</p>
-              </a>
-            </li>
-            <li class="splide__slide splide1">
-              <a href="#">
-                <img src="assets/imagens/cat3.png" alt="">
-                <p class="py-2">Disjuntores</p>
-              </a>
-            </li>
-            <li class="splide__slide splide1">
-              <a href="#">
-                <img src="assets/imagens/cat4.png" alt="">
-                <p class="py-2">Contactores</p>
-              </a>
-            </li>
-            <li class="splide__slide splide1">
-              <a href="#">
-                <img src="assets/imagens/cat5.png" alt="">
-                <p class="py-2">Capacitores</p>
-              </a>
-            </li>
-            <li class="splide__slide splide1">
-              <a href="produto/produto.html">
-                <img src="assets/imagens/cat6.jpg" alt="">
-                <p class="py-2">Arandelas</p>
-              </a>
-            </li>
-            <li class="splide__slide splide1">
-              <a href="#">
-                <img src="assets/imagens/cat7.jpg" alt="">
-                <p class="py-2">Abajures</p>
-              </a>
-            </li>
-            <li class="splide__slide splide1">
-              <a href="#">
-                <img src="assets/imagens/cat8.jpg" alt="">
-                <p class="py-2">Epi's</p>
-              </a>
-            </li>
-          </ul>
-        </div>
-        <ul class="splide__pagination"></ul>
-      </section>
-
-      <!-- produtos em promoção -->
-      <section>
-        <div class="raio mx-sm-5 fundo mb-5">
-          <h3 class="text-center esp_titulo">Produtos em Promoção</h3>
-          <div class="container">
-            <div class="row">
-              <div class="col-6 col-md-3">
-                <a href="" class="link">
-                  <img src="assets/imagens/Lamp1.png" class="img-thumbnail mx-auto d-block img_promocao" alt="">
-                  <p class="text-center espacamento"><strong>Lâmpada A</strong></p>
-                  <p class="text-center">
-                    <del class="sem_quebra val_ant">R$ 59,99</del> <span class="preco sem_quebra">R$ 44,99</span>
-                  </p>
-                </a>
-              </div>
-              <div class="col-6 col-md-3">
-                <a href="" class="link">
-                  <img src="assets/imagens/Lamp2.png" class="img-thumbnail mx-auto d-block img_promocao" alt="">
-                  <p class="text-center espacamento"><strong>Lâmpada B</strong></p>
-                  <p class="text-center">
-                    <del class="sem_quebra val_ant">R$ 59,99</del> <span class="preco sem_quebra">R$ 44,99</span>
-                  </p>
-                </a>
-              </div>
-              <div class="col-6 col-md-3">
-                <a href="" class="link">
-                  <img src="assets/imagens/Lamp3.png" class="img-thumbnail mx-auto d-block img_promocao" alt="">
-                  <p class="text-center espacamento"><strong>Lâmpada C</strong></p>
-                  <p class="text-center">
-                    <del class="sem_quebra val_ant">R$ 59,99</del> <span class="preco sem_quebra">R$ 44,99</span>
-                  </p>
-                </a>
-              </div>
-              <div class="col-6 col-md-3">
-                <a href="" class="link">
-                  <img src="assets/imagens/Lamp4.png" class="img-thumbnail mx-auto d-block img_promocao" alt="">
-                  <p class="text-center espacamento"><strong>Lâmpada D</strong></p>
-                  <p class="text-center">
-                    <del class="sem_quebra val_ant">R$ 59,99</del> <span class="preco sem_quebra">R$ 44,99</span>
-                  </p>
-                </a>
-              </div>
-            </div>
-
-            <div class="row p75">
-              <div class="col-6 col-md-3">
-                <a href="" class="link">
-                  <img src="assets/imagens/Lamp5.png" class="img-thumbnail mx-auto d-block img_promocao" alt="">
-                  <p class="text-center espacamento"><strong>Lâmpada E</strong></p>
-                  <p class="text-center ">
-                    <del class="sem_quebra val_ant">R$ 59,99</del> <span class="preco sem_quebra"> R$ 44,99</span>
-                  </p>
-                </a>
-              </div>
-              <div class="col-6 col-md-3">
-                <a href="" class="link">
-                  <img src="assets/imagens/Lamp6.png" class="img-thumbnail mx-auto d-block img_promocao" alt="">
-                  <p class="text-center espacamento"><strong>Lâmpada F</strong></p>
-                  <p class="text-center">
-                    <del class="sem_quebra val_ant">R$ 59,99</del> <span class="preco sem_quebra">R$ 44,99</span>
-                  </p>
-                </a>
-              </div>
-              <div class="col-6 col-md-3">
-                <a href="produto/produto.html" class="link">
-                  <img src="assets/imagens/cat6.jpg" class="img-thumbnail mx-auto d-block img_promocao" alt="">
-                  <p class="text-center espacamento"><strong>Arandela</strong></p>
-                  <p class="text-center">
-                    <del class="sem_quebra val_ant">R$ 59,99</del> <span class="preco sem_quebra">R$ 44,99</span>
-                  </p>
-                </a>
-              </div>
-              <div class="col-6 col-md-3">
-                <a href="" class="link">
-                  <img src="assets/imagens/cat7.jpg" class="img-thumbnail mx-auto d-block img_promocao" alt="">
-                  <p class="text-center espacamento"><strong>Abajur</strong></p>
-                  <p class="text-center">
-                    <del class="sem_quebra val_ant">R$ 59,99</del> <span class="preco sem_quebra">R$ 44,99</span>
-                  </p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- produto em destaque -->
-      <section class="mx-sm-5 my-5 raio fundo">
-        <div class="row w-100 mx-md-5 mx-1">
-          <div class="col-md-6 col-8">
-            <h3 class="text-center my-5 tit_des">Lâmpada F</h3>
-            <p class="justifica px-3 px-md-5 txt_des">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit ut
-              explicabo repellendus nesciunt ab voluptatem. Itaque numquam et dolorum fugiat.
-              <br><br>
-              <span>
-                <strong class="pre_des">R$ 34,99</strong>
-                <br>
-                <a href="categoria/categoria.html" class="inf_des">Veja mais</a>
-              </span>
-            </p>
-          </div>
-          <div class="col-md-6 col-4 d-flex">
-            <img src="assets/imagens/Lamp6.png" class="mx-auto d-block align-self-center img-fluid" alt="">
-          </div>
-        </div>
-      </section>
-
-      <!-- Categoria destaque -->
-      <section id="splide2" class="splide mx-sm-5 my-5 raio fundo p-2">
-        <div class="titulo_cat my-3">
-          <h3>Lâmpadas <a href="categoria/categoria.html">Veja mais</a></h3>
-
-        </div>
-        <div class="splide__track">
-          <ul class="splide__list">
-            <li class="splide__slide splide2">
-              <a href="#">
-                <img src="assets/imagens/Lamp1.png" alt="">
-                <p class="nom_cat_des">Lâmpada A</p>
-                <p class="pre_cat_des">R$ 29,99</p>
-              </a>
-            </li>
-            <li class="splide__slide splide2">
-              <a href="#">
-                <img src="assets/imagens/Lamp2.png" alt="">
-                <p class="nom_cat_des">Lâmpada B</p>
-                <p class="pre_cat_des">R$ 29,99</p>
-              </a>
-            </li>
-            <li class="splide__slide splide2">
-              <a href="#">
-                <img src="assets/imagens/Lamp3.png" alt="">
-                <p class="nom_cat_des">Lâmpada C</p>
-                <p class="pre_cat_des">R$ 29,99</p>
-              </a>
-            </li>
-            <li class="splide__slide splide2">
-              <a href="#">
-                <img src="assets/imagens/Lamp4.png" alt="">
-                <p class="nom_cat_des">Lâmpada D</p>
-                <p class="pre_cat_des">R$ 29,99</p>
-              </a>
-            </li>
-            <li class="splide__slide splide2">
-              <a href="#">
-                <img src="assets/imagens/Lamp5.png" alt="">
-                <p class="nom_cat_des">Lâmpada E</p>
-                <p class="pre_cat_des">R$ 29,99</p>
-              </a>
-            </li>
-            <li class="splide__slide splide2">
-              <a href="#">
-                <img src="assets/imagens/Lamp6.png" alt="">
-                <p class="nom_cat_des">Lâmpada F</p>
-                <p class="pre_cat_des">R$ 29,99</p>
-              </a>
-            </li>
-          </ul>
-        </div>
-
-      </section>
-
-    </div>
-  </main>
-
-  <footer>
-    <div class="top">
-      <img src="assets/imagens/logocamel.png" alt="logo" />
-      <p class="pt-3">
-        ©2022 - CAMEL ELETRICIDADE. <br /><br />
-        Todos os direitos reservados.
-      </p>
-    </div>
-    <div class="down">
-
-      <a href="https://www.facebook.com/cameleletricidade/" target="_blank"><i
-          class="fa-brands fa-facebook fa-2xl fa-pull-left"></i></a>
-
-      <a href="https://www.instagram.com/cameleletricidade/" target="_blank"><i
-          class="fa-brands fa-instagram-square fa-2xl fa-pull-left"></i></a>
-
-      <a href="https://www.google.com/maps/place/Camel+Eletricidade+Caruaru/@-8.252883,-35.972592,15z/data=!4m5!3m4!1s0x0:0x8c8a11189ca74d7f!8m2!3d-8.252883!4d-35.972592"
-        target="_blank"><i class="fa-solid fa-location-dot fa-2xl fa-pull-left"></i></a>
-
-      <a href="https://wa.me/5511987654321" target="_blank"><i
-          class="fa-brands fa-whatsapp-square fa-2xl fa-pull-left --fa-fade-opacity-1"></i></a>
-    </div>
-  </footer>
-
-  <script src="assets/js/script.js" defer></script>
-
-  <!-- Adicionando o Bootstrap -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
-  </script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-  </script>
-
-  <!-- Splide Js -->
-  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.0.7/dist/js/splide.min.js"></script>
-
-  <script>
-    var splide1 = new Splide('#splide1', {
-      type: 'loop',
-      perPage: 4,
-      drag: 'free',
-    });
-    splide1.mount();
-
-    var splide2 = new Splide('#splide2', {
-      type: 'loop',
-      perPage: 4,
-      drag: 'free',
-    });
-
-    splide2.mount();
-  </script>
-
-</body>
-
+      const publicitySwiper = new Swiper("main .publicity.swiper", {
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+      })
+    </script>
+  </body>
 </html>
