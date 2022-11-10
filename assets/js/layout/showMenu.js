@@ -1,4 +1,3 @@
-/* === HEADER OF PAGE ================================*/
 const drawer = document.querySelector("header .drawer")
 const overlay = document.querySelector(".overlay")
 const openMenuButton = document.querySelector(".openMenu")
