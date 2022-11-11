@@ -7,7 +7,7 @@ main header {
   text-align: center;
 }
 
-main header img.logo {
+main header .logo {
   width: 10rem;
 }
 
@@ -36,7 +36,7 @@ main header button a {
   align-items: center;
   gap: 1.6rem;
 
-  transition: opacity 0.2s ease 0s;
+  transition: opacity 0.3s ease 0s;
 }
 
 main header button:hover a svg path,
@@ -48,5 +48,11 @@ main header button:hover a {
 @media (min-width: 425px) {
   main header {
     width: 38.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  main header .logo {
+    width: 20rem;
   }
 }

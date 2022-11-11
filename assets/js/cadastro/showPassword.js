@@ -3,11 +3,11 @@ const passwordInput = document.querySelectorAll(
 )
 
 const passwordVisibilityIcon = document.querySelectorAll(
-  "main form fieldset .inputWrapper .passwordVisibilityIcon "
+  "main form fieldset .inputWrapper.showEffect .passwordVisibilityIcon "
 )
 
 const path = document.querySelectorAll(
-  "main form fieldset .inputWrapper .passwordVisibilityIcon path"
+  "main form fieldset .inputWrapper.showEffect .passwordVisibilityIcon path"
 )
 
 passwordVisibilityIcon[0].addEventListener("click", () => {

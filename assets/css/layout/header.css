@@ -69,6 +69,13 @@ header .top .user .userMenu button {
   background-color: var(--orange);
   height: 3rem;
   border-radius: 0.5rem;
+
+  display: flex;
+}
+
+header .top .user .userMenu button a {
+  width: 100%;
+  line-height: 3rem;
 }
 
 header .searchBar {
