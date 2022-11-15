@@ -247,7 +247,7 @@ header .drawer.show {
     opacity: 0;
     transition: 1s;
 
-    background-color: hsla(0, 0%, 50%, 0.5);
+    background-color: hsla(0, 0%, 0%, 0.6);
   }
 
   .overlay.show {

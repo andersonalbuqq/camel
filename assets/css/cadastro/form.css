@@ -47,8 +47,10 @@ main fieldset .inputWrapper input::placeholder {
 
 main form fieldset .inputWrapper .subWrapper {
   width: 100%;
+
   display: flex;
   align-items: center;
+  gap: 3rem;
 }
 
 main form fieldset .inputWrapper .passwordVisibilityIcon {
