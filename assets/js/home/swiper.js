@@ -21,8 +21,9 @@ const configurationSwiper = {
     el: ".swiper-scrollbar",
     hide: true,
   },
-  freeMode: true,
-  cssMode: true,
+  spaceBetween: 30,
+  // freeMode: true,
+  // cssMode: true,
 }
 
 const categoriesSwiper = new Swiper(
