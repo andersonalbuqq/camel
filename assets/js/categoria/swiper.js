@@ -47,25 +47,25 @@ const section = document.querySelector("main section.swiper")
 
 const productUl = document.querySelector("main section.products ul")
 
-const productImg = document.querySelectorAll(
-  "main .products ul li a .imageContainer img"
-)
-
-const productName = document.querySelectorAll(
-  "main .products ul li a .productName"
-)
-
-const divPrice = document.querySelectorAll("main .products ul li a .price")
-
-const productPrice = document.querySelectorAll(
-  "main .products ul li a  .price .productPrice"
-)
-
-const productPromotionPrice = document.querySelectorAll(
-  "main .products ul li a .price .productPromotionPrice"
-)
-
 function isActive() {
+  const productImg = document.querySelectorAll(
+    "main .products ul li a .imageContainer img"
+  )
+
+  const productName = document.querySelectorAll(
+    "main .products ul li a .productName"
+  )
+
+  const divPrice = document.querySelectorAll("main .products ul li a .price")
+
+  const productPrice = document.querySelectorAll(
+    "main .products ul li a  .price .productPrice"
+  )
+
+  const productPromotionPrice = document.querySelectorAll(
+    "main .products ul li a .price .productPromotionPrice"
+  )
+
   for (classList of li) {
     switch (classList[1]) {
       case "arandelas":
@@ -199,14 +199,14 @@ productListItem.innerHTML = `
         <a href="">
           <div class="imageContainer">
             <img
-              src="../assets/images/categoria/arandela.png"
-              alt="Imagem de uma arandela"
+              src=""
+              alt="Imagem do produto"
             />
           </div>
-          <span class="productName">Arandela X</span>
+          <span class="productName"></span>
           <div class="price promotion">
-            <span class="productPrice">R$ 100</span>
-            <span class="productPromotionPrice">R$ 74,99</span>
+            <span class="productPrice"></span>
+            <span class="productPromotionPrice"></span>
           </div>
         </a>
       </li>
@@ -217,6 +217,20 @@ function addListItem(amount) {
   for (let i = 0; i < amount; i++) {
     let clone = productListItem.cloneNode(true)
     productUl.appendChild(clone)
-    console.log("oi")
+  }
+}
+
+let windowWidth = window.innerWidth
+
+document.body.onload = () => {
+  if (windowWidth <= 425) {
+    addListItem(4)
+    isActive()
+  } else if (windowWidth > 425 && windowWidth <= 1024) {
+    addListItem(8)
+    isActive()
+  } else if (windowWidth > 1024) {
+    addListItem(15)
+    isActive()
   }
 }

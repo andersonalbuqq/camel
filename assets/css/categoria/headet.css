@@ -16,3 +16,10 @@ main header h1 {
 main header p {
   font-size: 1.4rem;
 }
+
+@media (min-width: 1024px) {
+  main header {
+    width: 75%;
+    border-radius: 1rem;
+  }
+}
