@@ -1,6 +1,5 @@
 main .products {
   width: 100%;
-  padding-block: 2.4rem;
 
   text-align: center;
 }
@@ -16,11 +15,18 @@ main .products ul {
   row-gap: 2.4rem;
 }
 
+main .products ul li {
+  width: fit-content;
+  margin: auto;
+}
+
 main .products ul li a {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
+
+  width: fit-content;
 }
 
 main .products ul li a .imageContainer {
@@ -58,23 +64,15 @@ main .products ul li a .price .productPromotionPrice {
   color: var(--orange);
 }
 
-@media (max-width: 425px) {
-  main .products ul li.r768 {
-    display: none;
-  }
-}
-
 @media (min-width: 768px) {
   main .products ul {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 
 @media (min-width: 1024px) {
   main .products {
     width: 75%;
-    padding: 2.4rem;
-    border-radius: 1rem;
   }
 }
 

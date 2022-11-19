@@ -14,7 +14,7 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="../assets/css/categoria/style.css" />
+    <link rel="stylesheet" href="../assets/css/produto/style.css" />
 
     <link
       rel="stylesheet"
@@ -233,95 +233,247 @@
     <div class="overlay" onclick="menu()"></div>
 
     <main>
-      <header>
-        <h1>Iluminação</h1>
-        <p>
-          Escolher a luminária ideal é muito mais do que um simples detalhe, já
-          que a iluminação faz toda a diferença em um ambiente. Seja para passar
-          a impressão de espaço mais amplo ou para tornar o cômodo mais
-          aconchegante e confortável, é importante investir num bom projeto de
-          iluminação.
-        </p>
-      </header>
+      <section class="browsingHistory">
+        <a href="">Iluminação</a>
+        <a href="">Arandelas</a>
+      </section>
 
-      <section class="swiper">
-        <ul class="swiper-wrapper">
-          <li class="swiper-slide arandelas">Arandelas</li>
-          <li class="swiper-slide balizadores">Balizadores</li>
-          <li class="swiper-slide fitasLed">Fitas LED</li>
-          <li class="swiper-slide lampadasFluorescentes">
-            Lâmpadas Fluorescentes
+      <section class="product">
+        <h1>Arandela X</h1>
+
+        <hr />
+
+        <div class="swiper mySwiper">
+          <ul class="swiperWrapper">
+            <li class="swiper-slide">
+              <img src="../assets/images/produto/img.jpg" alt="" />
+            </li>
+            <li class="swiper-slide">
+              <img src="../assets/images/produto/img1.jpg" alt="" />
+            </li>
+            <li class="swiper-slide">
+              <img src="../assets/images/produto/img2.jpg" alt="" />
+            </li>
+            <li class="swiper-slide">
+              <img src="../assets/images/produto/img3.jpg" alt="" />
+            </li>
+            <li class="swiper-slide">
+              <img src="../assets/images/produto/img4.jpg" alt="" />
+            </li>
+          </ul>
+        </div>
+        <div thumbsSlider="" class="swiper mySwiper1">
+          <ul class="swiperWrapper">
+            <li class="swiper-slide">
+              <img src="../assets/images/produto/img.jpg" alt="" />
+            </li>
+            <li class="swiper-slide">
+              <img src="../assets/images/produto/img1.jpg" alt="" />
+            </li>
+            <li class="swiper-slide">
+              <img src="../assets/images/produto/img2.jpg" alt="" />
+            </li>
+            <li class="swiper-slide">
+              <img src="../assets/images/produto/img3.jpg" alt="" />
+            </li>
+            <li class="swiper-slide">
+              <img src="../assets/images/produto/img4.jpg" alt="" />
+            </li>
+          </ul>
+        </div>
+
+        <hr />
+
+        <div class="description">
+          <p>
+            Esta Arandela cria um lindo efeito de 10 fachos de luz, extremamente
+            resistente a sol, chuva e maresia. Produzida em alumínio não
+            enferruja nunca. Ideal para ser usada em áreas externas e internas,
+            fácil instalação.
+          </p>
+          <a href="">Mais informações</a>
+        </div>
+      </section>
+
+      <section class="oftenBoughtTogether">
+        <p>Frequentemente Comprados Juntos</p>
+
+        <ul>
+          <li>
+            <input type="checkbox" name="" id="" />
+
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="../assets/images/produto/img.jpg"
+                  alt="Imagem do produto"
+                />
+              </div>
+              <span class="productName">Arandela X</span>
+              <div class="price promotion">
+                <span class="productPrice">R$ 90,50</span>
+                <!-- <span class="productPromotionPrice"></span> -->
+              </div>
+            </a>
           </li>
-          <li class="swiper-slide lampadasLed">Lâmpadas LED</li>
+
+          <li class="symbol">
+            <img
+              src="../assets/images/svg/produto/sumSymbol.svg"
+              alt="Símbolo do operador soma"
+            />
+          </li>
+
+          <li>
+            <input type="checkbox" name="" id="" />
+
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="../assets/images/produto/compradoJunto.png"
+                  alt="Imagem do produto"
+                />
+              </div>
+              <span class="productName">Lampada Led Halopim</span>
+              <div class="price promotion">
+                <span class="productPrice">R$ 20,00</span>
+                <span class="productPromotionPrice">R$ 15,00</span>
+              </div>
+            </a>
+          </li>
+
+          <li class="symbol">
+            <img
+              src="../assets/images/svg/produto/equalsSymbol.svg"
+              alt="Símbolo do operador igual"
+            />
+          </li>
+        </ul>
+      </section>
+
+      <section class="similarProducts">
+        <ul class="swiper-wrapper">
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="../assets/images/produto/similar.png"
+                  alt="Imagem do produto"
+                />
+              </div>
+              <span class="productName">Arandela Y</span>
+              <div class="price promotion">
+                <span class="productPrice">R$ 80,00</span>
+                <span class="productPromotionPrice">R$ 65,99</span>
+              </div>
+            </a>
+          </li>
+
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="../assets/images/produto/similar1.png"
+                  alt="Imagem do produto"
+                />
+              </div>
+              <span class="productName">Arandela Z</span>
+              <div class="price promotion">
+                <span class="productPrice">R$ 100,00</span>
+                <!-- <span class="productPromotionPrice">R$ 65,99</span> -->
+              </div>
+            </a>
+          </li>
+
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="../assets/images/produto/similar2.png"
+                  alt="Imagem do produto"
+                />
+              </div>
+              <span class="productName">Arandela D</span>
+              <div class="price promotion">
+                <span class="productPrice">R$ 100,00</span>
+                <!-- <span class="productPromotionPrice">R$ 65,99</span> -->
+              </div>
+            </a>
+          </li>
+
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="../assets/images/produto/similar3.png"
+                  alt="Imagem do produto"
+                />
+              </div>
+              <span class="productName">Arandela F</span>
+              <div class="price promotion">
+                <span class="productPrice">R$ 120,00</span>
+                <span class="productPromotionPrice">R$ 100,87</span>
+              </div>
+            </a>
+          </li>
+
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="../assets/images/produto/similar4.png"
+                  alt="Imagem do produto"
+                />
+              </div>
+              <span class="productName">Arandela I</span>
+              <div class="price promotion">
+                <span class="productPrice">R$ 85,00</span>
+                <!-- <span class="productPromotionPrice">R$ 65,99</span> -->
+              </div>
+            </a>
+          </li>
+
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="../assets/images/produto/similar5.png"
+                  alt="Imagem do produto"
+                />
+              </div>
+              <span class="productName">Arandela P</span>
+              <div class="price promotion">
+                <span class="productPrice">R$ 78,00</span>
+                <span class="productPromotionPrice">R$ 63,99</span>
+              </div>
+            </a>
+          </li>
         </ul>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
       </section>
 
-      <section class="products">
-        <ul>
-          <!-- <li>
-            <a href="">
-              <div class="imageContainer">
-                <img
-                  src="../assets/images/categoria/arandela.png"
-                  alt="Imagem de uma arandela"
-                />
-              </div>
-              <span class="productName">Arandela X</span>
-              <div class="price promotion">
-                <span class="productPrice">R$ 100</span>
-                <span class="productPromotionPrice">R$ 74,99</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <div class="imageContainer">
-                <img
-                  src="../assets/images/categoria/arandela.png"
-                  alt="Imagem de uma arandela"
-                />
-              </div>
-              <span class="productName">Arandela X</span>
-              <div class="price promotion">
-                <span class="productPrice">R$ 100</span>
-                <span class="productPromotionPrice">R$ 74,99</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <div class="imageContainer">
-                <img
-                  src="../assets/images/categoria/arandela.png"
-                  alt="Imagem de uma arandela"
-                />
-              </div>
-              <span class="productName">Arandela X</span>
-              <div class="price promotion">
-                <span class="productPrice">R$ 100</span>
-                <span class="productPromotionPrice">R$ 74,99</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="">
-              <div class="imageContainer">
-                <img
-                  src="../assets/images/categoria/arandela.png"
-                  alt="Imagem de uma arandela"
-                />
-              </div>
-              <span class="productName">Arandela X</span>
-              <div class="price promotion">
-                <span class="productPrice">R$ 100</span>
-                <span class="productPromotionPrice">R$ 74,99</span>
-              </div>
-            </a>
-          </li> -->
-        </ul>
-      </section>
+      <details class="productInformation">
+        <summary>Informações do Produto</summary>
+        <p>
+          Por ser um produto original STARLUMEN a pintura utilizada é
+          eletrostática que confere extrema proteção e durabilidade sem
+          descascar ou desbotar, não arrisque comprando réplicas. Um toque de
+          beleza que valoriza sua casa.
+        </p>
+      </details>
+
+      <details class="datasheet">
+        <summary>Ficha Técnica</summary>
+        <p>
+          - Cor: marrom - Material da arandela: 100% Alumínio e vidro - Soquete:
+          g9 halopin - Tamanho da arandela: altura 12,5 cm x largura 10 cm x
+          profundidade 10 cm ITENS INCLUSOS: - 03 Arandela MARROM ST678 - 03
+          Máscara Efeito 10 Fachos MARROM ST910 - Parafusos para instalação NÃO
+          ACOMPANHA LÂMPADA
+        </p>
+      </details>
     </main>
 
     <footer>
@@ -365,7 +517,6 @@
     </footer>
 
     <script src="../assets/js/layout/showMenu.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script src="../assets/js/categoria/swiper.js"></script>
+    <script src="../assets/js/produto/swiper.js"></script>
   </body>
 </html>
