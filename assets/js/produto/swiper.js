@@ -1,18 +1,17 @@
-const mainProduct = new Swiper("main .product .mySwiper", {
+const swiper = new Swiper("main .product .mySwiper", {
   spaceBetween: 10,
+  slidesPerView: 5,
+})
+
+const swiper2 = new Swiper("main .product .mySwiper2", {
+  spaceBetween: 10,
+  slidesPerView: 1,
   thumbs: {
     swiper: swiper,
   },
 })
 
-const mainProductThumbs = new Swiper("main .product .mySwiper1", {
-  spaceBetween: 10,
-  slidesPerView: 4,
-  freeMode: true,
-  watchSlidesProgress: true,
-})
-
-const similarProducts = new Swiper("main .product .similarProducts", {
+const relatedProducts = new Swiper("main .relatedProducts", {
   navigation: {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
@@ -30,10 +29,6 @@ const similarProducts = new Swiper("main .product .similarProducts", {
     1440: {
       slidesPerView: 8,
     },
-  },
-  scrollbar: {
-    el: ".swiper-scrollbar",
-    hide: true,
   },
   spaceBetween: 30,
 })
