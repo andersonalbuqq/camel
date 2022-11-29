@@ -26,9 +26,6 @@ const relatedProducts = new Swiper("main .relatedProducts", {
     768: {
       slidesPerView: 5,
     },
-    1440: {
-      slidesPerView: 8,
-    },
   },
   spaceBetween: 30,
 })
