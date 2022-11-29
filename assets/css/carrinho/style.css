@@ -32,6 +32,8 @@ main ul {
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
+
+  width: 100%;
 }
 
 main ul li {
@@ -58,7 +60,7 @@ main ul li .wrapper {
   width: 100%;
 }
 
-main ul li .imageContainer {
+main ul li .wrapper .imageContainer {
   background-color: var(--gray);
   padding: 1rem;
   border-radius: 0.5rem;
@@ -67,7 +69,7 @@ main ul li .imageContainer {
   align-self: center;
 }
 
-main ul li .imageContainer img {
+main ul li .wrapper .imageContainer img {
   width: 8rem;
   height: 8rem;
 }
@@ -75,7 +77,7 @@ main ul li .imageContainer img {
 main ul li .wrapper .wrapper1 {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.8rem;
 
   width: 100%;
 }
@@ -84,7 +86,7 @@ main ul li .wrapper .wrapper1 header {
   gap: 0.5rem;
 }
 
-main ul li .wrapper .wrapper1 .name {
+main ul li .wrapper .wrapper1 header .name {
   color: var(--black);
   font-size: 1.8rem;
   font-weight: 600;
@@ -101,8 +103,8 @@ main ul li .wrapper .wrapper1 header .available {
 
 main ul li .wrapper .wrapper1 .price {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.6rem;
   font-weight: 600;
   font-size: 1.6rem;
 }
@@ -117,7 +119,7 @@ main ul li .wrapper .wrapper1 .price .productPromotionPrice {
 
 main ul li .wrapper .wrapper1 .buttons {
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 1.2rem;
 
   margin-top: 0.6rem;
@@ -160,6 +162,8 @@ main footer {
   background: none;
   padding: 1.6rem;
 
+  flex-direction: column;
+  gap: 2rem;
   align-items: center;
 
   color: var(--black);
@@ -181,4 +185,34 @@ main footer button {
 
 main footer button:hover {
   filter: brightness(1.15);
+}
+
+@media (min-width: 425px) {
+  main ul li .wrapper .imageContainer img {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+@media (min-width: 768px) {
+  main {
+    width: 76.8rem;
+    margin: 7rem auto;
+    border-radius: 1rem;
+  }
+
+  main ul li .wrapper .wrapper1 {
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  main ul li .wrapper .imageContainer img {
+    width: 12rem;
+    height: 12rem;
+  }
+
+  main ul,
+  main footer {
+    width: 50rem;
+  }
 }
