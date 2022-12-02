@@ -72,3 +72,11 @@ main button {
 main button:hover {
   filter: brightness(1.15);
 }
+
+@media (min-width: 42.5px) {
+  main {
+    width: 42.5rem;
+    margin-inline: auto;
+    border-radius: 1rem;
+  }
+}
