@@ -46,7 +46,8 @@ main .emphasisProducts ul li a .productName {
 
 main .emphasisProducts ul li a .price {
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.5rem;
   font-weight: 600;
 }
 

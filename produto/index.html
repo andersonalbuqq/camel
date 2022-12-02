@@ -235,123 +235,100 @@
     <main>
       <section class="browsingHistory">
         <a href="">Iluminação</a>
+        <span>></span>
         <a href="">Arandelas</a>
       </section>
 
       <section class="product">
-        <h1>Arandela X</h1>
+        <header>
+          <h1>Arandela X</h1>
+          <hr />
+        </header>
 
-        <hr />
+        <section class="slides">
+          <div class="swiper mySwiper2">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="../assets/images/produto/img.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="../assets/images/produto/img1.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="../assets/images/produto/img2.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="../assets/images/produto/img3.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="../assets/images/produto/img4.jpg" />
+              </div>
+            </div>
+          </div>
+          <div thumbsSlider="" class="swiper mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="../assets/images/produto/img.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="../assets/images/produto/img1.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="../assets/images/produto/img2.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="../assets/images/produto/img3.jpg" />
+              </div>
+              <div class="swiper-slide">
+                <img src="../assets/images/produto/img4.jpg" />
+              </div>
+            </div>
+          </div>
+        </section>
 
-        <div class="swiper mySwiper">
-          <ul class="swiperWrapper">
-            <li class="swiper-slide">
-              <img src="../assets/images/produto/img.jpg" alt="" />
-            </li>
-            <li class="swiper-slide">
-              <img src="../assets/images/produto/img1.jpg" alt="" />
-            </li>
-            <li class="swiper-slide">
-              <img src="../assets/images/produto/img2.jpg" alt="" />
-            </li>
-            <li class="swiper-slide">
-              <img src="../assets/images/produto/img3.jpg" alt="" />
-            </li>
-            <li class="swiper-slide">
-              <img src="../assets/images/produto/img4.jpg" alt="" />
-            </li>
-          </ul>
-        </div>
-        <div thumbsSlider="" class="swiper mySwiper1">
-          <ul class="swiperWrapper">
-            <li class="swiper-slide">
-              <img src="../assets/images/produto/img.jpg" alt="" />
-            </li>
-            <li class="swiper-slide">
-              <img src="../assets/images/produto/img1.jpg" alt="" />
-            </li>
-            <li class="swiper-slide">
-              <img src="../assets/images/produto/img2.jpg" alt="" />
-            </li>
-            <li class="swiper-slide">
-              <img src="../assets/images/produto/img3.jpg" alt="" />
-            </li>
-            <li class="swiper-slide">
-              <img src="../assets/images/produto/img4.jpg" alt="" />
-            </li>
-          </ul>
-        </div>
-
-        <hr />
-
-        <div class="description">
+        <section class="description">
+          <header>
+            <h1>Arandela X</h1>
+            <hr class="first" />
+          </header>
           <p>
             Esta Arandela cria um lindo efeito de 10 fachos de luz, extremamente
             resistente a sol, chuva e maresia. Produzida em alumínio não
             enferruja nunca. Ideal para ser usada em áreas externas e internas,
             fácil instalação.
           </p>
-          <a href="">Mais informações</a>
-        </div>
+          <a href="#productInformation">Mais informações</a>
+          <hr class="second" />
+        </section>
+
+        <section class="end">
+          <div class="price promotion">
+            <span class="productPrice">R$ 100</span>
+            <span class="productPromotionPrice">R$ 74,99</span>
+          </div>
+
+          <div class="addToCar">
+            <button>Adicionar ao carrinho</button>
+
+            <div class="amount">
+              <span>Quantidade</span>
+              <select>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+          </div>
+        </section>
       </section>
 
-      <section class="oftenBoughtTogether">
-        <p>Frequentemente Comprados Juntos</p>
+      <section class="relatedProducts swiper">
+        <header>
+          <h2>Produtos Relacionados</h2>
+        </header>
 
-        <ul>
-          <li>
-            <input type="checkbox" name="" id="" />
-
-            <a href="">
-              <div class="imageContainer">
-                <img
-                  src="../assets/images/produto/img.jpg"
-                  alt="Imagem do produto"
-                />
-              </div>
-              <span class="productName">Arandela X</span>
-              <div class="price promotion">
-                <span class="productPrice">R$ 90,50</span>
-                <!-- <span class="productPromotionPrice"></span> -->
-              </div>
-            </a>
-          </li>
-
-          <li class="symbol">
-            <img
-              src="../assets/images/svg/produto/sumSymbol.svg"
-              alt="Símbolo do operador soma"
-            />
-          </li>
-
-          <li>
-            <input type="checkbox" name="" id="" />
-
-            <a href="">
-              <div class="imageContainer">
-                <img
-                  src="../assets/images/produto/compradoJunto.png"
-                  alt="Imagem do produto"
-                />
-              </div>
-              <span class="productName">Lampada Led Halopim</span>
-              <div class="price promotion">
-                <span class="productPrice">R$ 20,00</span>
-                <span class="productPromotionPrice">R$ 15,00</span>
-              </div>
-            </a>
-          </li>
-
-          <li class="symbol">
-            <img
-              src="../assets/images/svg/produto/equalsSymbol.svg"
-              alt="Símbolo do operador igual"
-            />
-          </li>
-        </ul>
-      </section>
-
-      <section class="similarProducts">
         <ul class="swiper-wrapper">
           <li class="swiper-slide">
             <a href="">
@@ -373,6 +350,22 @@
             <a href="">
               <div class="imageContainer">
                 <img
+                  src="../assets/images/produto/similar6.png"
+                  alt="Imagem do produto"
+                />
+              </div>
+              <span class="productName">Lampada Led Halopim</span>
+              <div class="price">
+                <span class="productPrice">R$ 20,00</span>
+                <span class="productPromotionPrice"></span>
+              </div>
+            </a>
+          </li>
+
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
                   src="../assets/images/produto/similar1.png"
                   alt="Imagem do produto"
                 />
@@ -380,7 +373,7 @@
               <span class="productName">Arandela Z</span>
               <div class="price promotion">
                 <span class="productPrice">R$ 100,00</span>
-                <!-- <span class="productPromotionPrice">R$ 65,99</span> -->
+                <span class="productPromotionPrice">R$ 65,99</span>
               </div>
             </a>
           </li>
@@ -395,8 +388,8 @@
               </div>
               <span class="productName">Arandela D</span>
               <div class="price promotion">
-                <span class="productPrice">R$ 100,00</span>
-                <!-- <span class="productPromotionPrice">R$ 65,99</span> -->
+                <span class="productPrice">R$ 90,00</span>
+                <span class="productPromotionPrice">R$ 70,99</span>
               </div>
             </a>
           </li>
@@ -421,6 +414,22 @@
             <a href="">
               <div class="imageContainer">
                 <img
+                  src="../assets/images/produto/similar6.png"
+                  alt="Imagem do produto"
+                />
+              </div>
+              <span class="productName">Lampada Led Halopim</span>
+              <div class="price">
+                <span class="productPrice">R$ 20,00</span>
+                <span class="productPromotionPrice"></span>
+              </div>
+            </a>
+          </li>
+
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
                   src="../assets/images/produto/similar4.png"
                   alt="Imagem do produto"
                 />
@@ -428,7 +437,23 @@
               <span class="productName">Arandela I</span>
               <div class="price promotion">
                 <span class="productPrice">R$ 85,00</span>
-                <!-- <span class="productPromotionPrice">R$ 65,99</span> -->
+                <span class="productPromotionPrice">R$ 65,99</span>
+              </div>
+            </a>
+          </li>
+
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="../assets/images/produto/similar1.png"
+                  alt="Imagem do produto"
+                />
+              </div>
+              <span class="productName">Arandela Z</span>
+              <div class="price promotion">
+                <span class="productPrice">R$ 100,00</span>
+                <span class="productPromotionPrice">R$ 65,99</span>
               </div>
             </a>
           </li>
@@ -448,13 +473,28 @@
               </div>
             </a>
           </li>
+
+          <li class="swiper-slide">
+            <a href="">
+              <div class="imageContainer">
+                <img
+                  src="../assets/images/produto/similar2.png"
+                  alt="Imagem do produto"
+                />
+              </div>
+              <span class="productName">Arandela D</span>
+              <div class="price promotion">
+                <span class="productPrice">R$ 90,00</span>
+                <span class="productPromotionPrice">R$ 70,99</span>
+              </div>
+            </a>
+          </li>
         </ul>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
-        <div class="swiper-scrollbar"></div>
       </section>
 
-      <details class="productInformation">
+      <details id="productInformation">
         <summary>Informações do Produto</summary>
         <p>
           Por ser um produto original STARLUMEN a pintura utilizada é
@@ -464,15 +504,36 @@
         </p>
       </details>
 
-      <details class="datasheet">
+      <details id="datasheet">
         <summary>Ficha Técnica</summary>
-        <p>
-          - Cor: marrom - Material da arandela: 100% Alumínio e vidro - Soquete:
-          g9 halopin - Tamanho da arandela: altura 12,5 cm x largura 10 cm x
-          profundidade 10 cm ITENS INCLUSOS: - 03 Arandela MARROM ST678 - 03
-          Máscara Efeito 10 Fachos MARROM ST910 - Parafusos para instalação NÃO
-          ACOMPANHA LÂMPADA
-        </p>
+        <table>
+          <tbody>
+            <tr>
+              <th>Cor</th>
+              <td>Marrom</td>
+            </tr>
+            <tr>
+              <th>Material</th>
+              <td>100% Alumínio e vidro</td>
+            </tr>
+            <tr>
+              <th>Soquete</th>
+              <td>g9 halopin</td>
+            </tr>
+            <tr>
+              <th>Tamanho</th>
+              <td>altura 12,5 cm x largura 10 cm x profundidade 10 cm</td>
+            </tr>
+            <tr>
+              <th>Itens Inclusos</th>
+              <td>
+                Três Arandelas MARROM ST678; &#; Três Máscaras Efeito; Dez
+                Fachos MARROM ST910; Parafusos para instalação; NÃO ACOMPANHA
+                LÂMPADA.
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </details>
     </main>
 
@@ -517,6 +578,7 @@
     </footer>
 
     <script src="../assets/js/layout/showMenu.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
     <script src="../assets/js/produto/swiper.js"></script>
   </body>
 </html>

@@ -3,20 +3,6 @@ const swiper = new Swiper("main .swiper", {
     nextEl: ".swiper-button-next",
     prevEl: ".swiper-button-prev",
   },
-  // breakpoints: {
-  //   320: {
-  //     slidesPerView: 1,
-  //   },
-  //   425: {
-  //     slidesPerView: 3,
-  //   },
-  //   768: {
-  //     slidesPerView: 5,
-  //   },
-  //   1440: {
-  //     slidesPerView: 8,
-  //   },
-  // },
   spaceBetween: 30,
   slidesPerView: 1,
   allowTouchMove: false,
@@ -81,10 +67,10 @@ function isActive() {
               div.classList.add("promotion")
             }
             for (price of productPrice) {
-              price.innerText = "R$ 74,99"
+              price.innerText = "R$ 100"
             }
             for (promotionPrice of productPromotionPrice) {
-              promotionPrice.innerText = "R$ 100"
+              promotionPrice.innerText = "R$ 74,99"
             }
           }
         }
