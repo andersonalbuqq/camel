@@ -100,6 +100,7 @@ main .product .description a {
   font-size: 1.2rem;
 
   align-self: flex-start;
+  width: fit-content;
 }
 
 main .product .description hr.second {
@@ -144,6 +145,31 @@ main .product .end .addToCar button {
   color: var(--white);
   font-size: 1.2rem;
   font-weight: 700;
+
+  transition: filter 0.3s ease 0s;
+}
+
+main .product .end .addToCar button:hover {
+  filter: brightness(1.15);
+}
+
+main .product .end .addToCar .productAdded {
+  background-color: rgb(52, 168, 52);
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  font-weight: 700;
+  color: var(--white);
+
+  position: fixed;
+  right: -100%;
+  bottom: 4rem;
+
+  transition: 0.8s ease;
+}
+
+main .product .end .addToCar .productAdded.show {
+  right: 4rem;
 }
 
 main .product .end .addToCar .amount select {

@@ -42,16 +42,28 @@ header .top .user .userMenu {
 
   background-color: var(--gray);
   width: 20rem;
-  padding: 3rem 2rem;
+  padding-block: 3rem;
   border-radius: 1rem;
+  box-shadow: 0 8px 10px -5px rgb(0 0 0 / 20%), 0 16px 24px 2px rgb(0 0 0 / 14%),
+    0 6px 30px 5px rgb(0 0 0 / 12%);
 
-  z-index: 999;
+  z-index: 998;
 }
 
 header .top .user .userMenu ul {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+header .top .user .userMenu ul li {
+  padding-inline: 2rem;
+
+  transition: opacity 0.3s ease 0s;
+}
+
+header .top .user .userMenu ul li:hover {
+  opacity: 0.8;
 }
 
 header .top .user .userMenu ul li a {
@@ -66,16 +78,24 @@ header .top .user .userMenu button {
   text-align: center;
   font-weight: 700;
 
-  background-color: var(--orange);
   height: 3rem;
-  border-radius: 0.5rem;
+  padding-inline: 2rem;
 
   display: flex;
 }
 
 header .top .user .userMenu button a {
   width: 100%;
+  background-color: var(--orange);
+  border-radius: 0.5rem;
+
   line-height: 3rem;
+
+  transition: filter 0.3s ease 0s;
+}
+
+header .top .user .userMenu button a:hover {
+  filter: brightness(1.15);
 }
 
 header .searchBar {
@@ -204,6 +224,11 @@ header .drawer.show {
     display: flex;
     align-items: center;
     gap: 1rem;
+
+    padding-right: 1.6rem;
+    border: 0.2rem solid transparent;
+    border-radius: 1rem;
+    cursor: pointer;
   }
 
   header .desktop .bottom .closeMenu {
@@ -213,6 +238,23 @@ header .drawer.show {
   header .desktop .bottom ul {
     display: flex;
     gap: 2rem;
+  }
+
+  header .desktop .bottom ul li {
+    padding: 0.6rem;
+    border: 0.2rem solid transparent;
+    border-radius: 1rem;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    text-align: center;
+  }
+
+  header .desktop .bottom ul li:hover,
+  header .desktop .bottom button:hover {
+    border: 0.2rem solid #fff;
   }
 
   header .drawer {

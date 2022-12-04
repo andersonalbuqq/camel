@@ -19,7 +19,7 @@ main table {
 main table th,
 main table td {
   padding: 0.8rem;
-  border: 0.1rem solid var(--gray);
+  /* border: 0.1rem solid var(--gray); */
 }
 
 main table tr:nth-child(even) {
@@ -53,6 +53,7 @@ main .payment header {
 
 main .payment select {
   font-size: 1.4rem;
+  font-weight: 700;
   padding: 1rem;
 }
 

@@ -21,7 +21,7 @@ main #datasheet table {
 
 main #datasheet table tbody td,
 main #datasheet table tbody th {
-  border: 0.1rem solid var(--gray);
+  /* border: 0.1rem solid var(--gray); */
   padding: 1rem;
 }
 

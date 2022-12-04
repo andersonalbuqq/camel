@@ -17,6 +17,10 @@ main .emphasisProducts ul {
   row-gap: 2.4rem;
 }
 
+main .emphasisProducts ul li.joker {
+  display: none;
+}
+
 main .emphasisProducts ul li a {
   display: flex;
   flex-direction: column;
@@ -82,5 +86,9 @@ main .emphasisProducts ul li a .price .promotionProductPrice {
 @media (min-width: 1440px) {
   main .emphasisProducts ul {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  main .emphasisProducts ul li.joker {
+    display: inherit;
   }
 }

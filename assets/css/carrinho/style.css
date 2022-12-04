@@ -151,13 +151,6 @@ main ul li .wrapper .wrapper1 .buttons button:hover {
   text-decoration: underline;
 }
 
-main footer hr {
-  border: none;
-  width: 80%;
-  height: 0.3rem;
-  background-color: #ddd;
-}
-
 main footer {
   background: none;
   padding: 1.6rem;
@@ -170,9 +163,15 @@ main footer {
   font-size: 2rem;
 }
 
+main footer hr {
+  border: none;
+  width: 80%;
+  height: 0.3rem;
+  background-color: #ddd;
+}
+
 main footer button {
   background-color: var(--orange);
-  padding: 0.8rem;
   border-radius: 0.5rem;
   width: 100%;
   cursor: pointer;
@@ -181,6 +180,13 @@ main footer button {
   font-weight: 700;
 
   transition: filter 0.3s ease 0s;
+
+  display: flex;
+}
+
+main footer button a {
+  width: 100%;
+  line-height: 3.2rem;
 }
 
 main footer button:hover {
