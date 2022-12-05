@@ -74,7 +74,7 @@ main button:hover {
   filter: brightness(1.15);
 }
 
-@media (min-width: 42.5px) {
+@media (min-width: 42.5rem) {
   main {
     width: 42.5rem;
     margin-inline: auto;

@@ -165,6 +165,8 @@ main .product .end .addToCar .productAdded {
   right: -100%;
   bottom: 4rem;
 
+  z-index: 998;
+
   transition: 0.8s ease;
 }
 
