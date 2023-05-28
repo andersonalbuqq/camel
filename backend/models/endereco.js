@@ -40,19 +40,7 @@ const Endereco = db.define("endereco", {
   },
 });
 
-Endereco.associations = (models) => {
-  Endereco.belongsTo(models.Cliente, {foreignKey: 'id_cliente'})
-}
-
-// Endereco.Cliente = Endereco.belongsTo(Cliente, { foreignKey: "id_cliente" });
-// Cliente.Endereco = Cliente.hasOne(Endereco, { foreignKey: "id_cliente" });
-
-// endereco.hasOne(Cliente, {
-//   foreignKey: {
-//     name: 'id_cliente',
-//     type: DataTypes.INTEGER,
-//     unique: true,
-//   },
-// });
+Endereco.belongsTo(Cliente, { foreignKey: "id_cliente"});
+Cliente.hasOne(Endereco, { foreignKey: "id_cliente"});
 
 module.exports = Endereco;

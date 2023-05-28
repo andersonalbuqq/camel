@@ -2,8 +2,6 @@ const { DataTypes } = require("sequelize");
 
 const db = require("../db/conn");
 
-const Endereco = require("./endereco.js")
-
 const cliente = db.define("cliente", {
   nome: {
     type: DataTypes.STRING(100),
@@ -30,17 +28,5 @@ const cliente = db.define("cliente", {
     unique: true,
   },
 });
-
-cliente.associations = (models) => {
-  cliente.hasOne(models.Endereco, {foreignKey: 'id_cliente'})
-}
-
-// cliente.belongsTo(Endereco, {
-//   foreignKey: {
-//     name: 'userId',
-//     type: DataTypes.INTEGER,
-//     unique: true
-//   },
-// });
 
 module.exports = cliente;

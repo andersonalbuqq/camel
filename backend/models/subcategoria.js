@@ -7,9 +7,7 @@ const subcategoria = db.define("subcategoria", {
     type: DataTypes.STRING(100),
     required: true,
     allowNull: false,
-  }
-})
+  },
+});
 
-// subcategoria.has
-
-module.exports = subcategoria
+module.exports = subcategoria;

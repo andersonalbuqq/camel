@@ -7,7 +7,7 @@ const categoria = db.define("categoria", {
     type: DataTypes.STRING(100),
     required: true,
     allowNull: false,
-  }
-})
+  },
+});
 
-module.exports = categoria
+module.exports = categoria;
