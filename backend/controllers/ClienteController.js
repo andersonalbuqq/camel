@@ -120,6 +120,12 @@ module.exports = class ClienteController {
     const cliente = await Cliente.findByPk(id);
 
     //validações
+
+    //verifica se o usuário existe no BD
+    if(!cliente){
+      res.status(422).json({message:"Informe um usuário válido."})
+      return
+    }
     const verificaSenha = await bcrypt.compare(senhaAntiga, cliente.senha);
 
     if (!verificaSenha) {
@@ -141,9 +147,13 @@ module.exports = class ClienteController {
       return;
     }
 
+    //criptografia da senha
+    const salt = await bcrypt.genSalt(10);
+    const senhaCripto = await bcrypt.hash(novaSenha.toString(), salt);
+
     //atualiza a senha
     try {
-      await Cliente.update({ senha: novaSenha }, { where: { id: id } });
+      await Cliente.update({ senha: senhaCripto }, { where: { id: id } });
       res.status(201).json({ message: "Senha atualizado com sucesso!" });
     } catch (error) {
       console.log(`Falha na atualização da senha: ${error}`);
@@ -153,15 +163,30 @@ module.exports = class ClienteController {
   static async updateCPF(req, res) {
     const { id, cpf } = req.body;
 
-    const cliente = Cliente.findByPk(id);
+    const cliente = await Cliente.findByPk(id);
+
+    //validações
+    //verifica se o usuário existe no BD
+    if(!cliente){
+      res.status(422).json({message:"Informe um usuário válido."})
+      return
+    }
 
     if (!cpf) {
       res.status(422).json({ message: "O cpf deve ser informado" });
       return
     }
-    
-    if (/^\d+$/.test(cpf)){
+
+    //verifica se apenas de números informados
+    if (!(/^[0-9]+$/.test(cpf))){
       res.status(422).json({ message: "Informe apenas os números do CPF." });
+      return
+    }
+    
+    //verifica a quantidade de dígitos
+
+    if(cpf.toString().length !== 11){
+      res.status(422).json({ message: "CPF incorreto." });
       return
     }
 
@@ -172,4 +197,43 @@ module.exports = class ClienteController {
       console.log(`Falha na atualização: ${error}`);
     }
   }
+
+  static async updateTelefone(req, res){
+    const { id, telefone } = req.body;
+
+    const cliente = await Cliente.findByPk(id);
+
+    //validações
+    //verifica se o usuário existe no BD
+    if(!cliente){
+      res.status(422).json({message:"Informe um usuário válido."})
+      return
+    }
+
+    if (!telefone) {
+      res.status(422).json({ message: "O telefone deve ser informado" });
+      return
+    }
+
+    //verifica se apenas de números informados
+    if (!(/^[0-9]+$/.test(telefone))){
+      res.status(422).json({ message: "Informe apenas os números do Telefone." });
+      return
+    }
+    
+    //verifica a quantidade de dígitos
+    if(!(telefone.toString().length === 11 || telefone.toString().length === 10 )){
+      res.status(422).json({ message: "Informe o telefone com o DDD" });
+      return
+    }
+
+    try{
+      await Cliente.update({telefone: telefone}, {where: {id:id }})
+      res.status(201).json({ message: "Telefone atualizado com sucesso!" });
+    } catch(error){
+      console.log(`Falha na atualização: ${error}`);
+    }
+  }
+
+  //Implemetar a função de exclusão de usuário após a criação completa do entes do BD.
 };
