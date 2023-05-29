@@ -1,3 +1,4 @@
+const { where } = require("sequelize");
 const Cliente = require("../models/cliente");
 const Endereco = require("../models/endereco");
 
@@ -122,22 +123,15 @@ module.exports = class EnderecoController {
       req.body;
 
     //validações
+    if (!id_cliente) {
+      res.status(422).json({ message: "Informe o ID do cliente!" });
+      return;
+    }
+
     const cliente = await Cliente.findByPk(id_cliente);
 
     if (!cliente) {
       res.status(422).json({ message: "Usuário não encontrado!" });
-      return;
-    }
-
-    const enderecoCadastrado = await Endereco.findOne({
-      where: { id_cliente: id_cliente },
-    });
-
-    if (enderecoCadastrado) {
-      res.status(422).json({
-        message: "Usuário ja possui endereço cadastrado",
-        enderecoCadastrado,
-      });
       return;
     }
 
@@ -196,7 +190,7 @@ module.exports = class EnderecoController {
       return;
     }
 
-    const endereco = new Endereco({
+    const endereco = {
       cep,
       rua,
       bairro,
@@ -204,9 +198,14 @@ module.exports = class EnderecoController {
       complemento,
       cidade,
       uf: uf.toUpperCase(),
-      id_cliente,
-    });
+    };
 
-    console.log(endereco);
+    try {
+      await Endereco.update(endereco, { where: { id_cliente: id_cliente } });
+      res.status(200).json({ message: "Endereço atualizado com sucesso!" });
+    } catch (error) {
+      res.status(500).json({ message: "Falha na atualização do endereço" });
+      console.log(`Falha na atualização: ${error}`);
+    }
   }
 };

@@ -40,7 +40,7 @@ const Endereco = db.define("endereco", {
   },
 });
 
-Endereco.belongsTo(Cliente, { foreignKey: "id_cliente"});
-Cliente.hasOne(Endereco, { foreignKey: "id_cliente"});
+Endereco.belongsTo(Cliente, { foreignKey: "id_cliente", onDelete: "CASCADE" });
+Cliente.hasOne(Endereco, { foreignKey: "id_cliente", onDelete: "CASCADE" });
 
 module.exports = Endereco;
