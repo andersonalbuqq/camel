@@ -2,8 +2,6 @@ const { DataTypes } = require("sequelize");
 
 const db = require("../db/conn");
 
-const Endereco = require("./endereco.js")
-
 const cliente = db.define("cliente", {
   nome: {
     type: DataTypes.STRING(100),
@@ -28,14 +26,6 @@ const cliente = db.define("cliente", {
   telefone: {
     type: DataTypes.STRING(11),
     unique: true,
-  },
-});
-
-cliente.belongsTo(Endereco, {
-  foreignKey: {
-    name: 'userId',
-    type: DataTypes.INTEGER,
-    unique: true
   },
 });
 

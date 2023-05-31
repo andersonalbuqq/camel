@@ -8,7 +8,7 @@ const public_path = "public";
 const views_path = "views";
 
 //Interpreta as requisições no formato json
-app.use(express.json())
+app.use(express.json());
 
 app.use(express.static(public_path));
 app.set("view engine", "ejs");
