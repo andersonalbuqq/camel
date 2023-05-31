@@ -52,7 +52,7 @@ module.exports = class ClienteController {
 
     try {
       await cliente.save();
-      res.status(201).json({ message: "Usuário criado com sucesso!" });
+      res.status(201).json({ message: "Usuário criado com sucesso!", cliente });
     } catch (error) {
       res
         .status(500)
@@ -262,14 +262,14 @@ module.exports = class ClienteController {
       res.status(422).json({ message: "Senha incorreta!" });
       return;
     }
-    
+
     try {
       cliente.destroy();
       res.status(200).json({ message: "Apagado com sucesso!" });
       return;
     } catch (error) {
       res.status(500).json({ message: "Falha na exclusão!" });
-      return;  
+      return;
     }
   }
 };

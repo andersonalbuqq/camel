@@ -95,7 +95,9 @@ module.exports = class EnderecoController {
 
     try {
       await endereco.save();
-      res.status(201).json({ message: "Endereco criado com sucesso!" });
+      res
+        .status(201)
+        .json({ message: "Endereco criado com sucesso!", endereco });
     } catch {
       res.status(500);
     }
