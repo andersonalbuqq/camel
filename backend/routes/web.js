@@ -4,6 +4,7 @@ const router = express.Router();
 const HomeController = require("../controllers/HomeController")();
 const ClienteController = require("../controllers/ClienteController");
 const EnderecoController = require("../controllers/EnderecoController");
+
 const ProdutoController = require("../controllers/ProdutoController");
 const CategoriaController = require("../controllers/CategoriaController");
 const SubcategoriaController = require("../controllers/SubcategoriaController");
@@ -26,6 +27,7 @@ router.delete("/cliente/:id", ClienteController.deleteCliente);
 //Rotas dos Endereços
 router.post("/endereco", EnderecoController.create);
 router.put("/endereco/update", EnderecoController.updateEndereco);
+
 router.get("/endereco/:id_cliente", EnderecoController.getEndereco);
 module.exports = router;
 

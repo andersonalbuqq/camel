@@ -122,9 +122,11 @@ module.exports = class ClienteController {
     //validações
 
     //verifica se o usuário existe no BD
+
     if (!cliente) {
       res.status(422).json({ message: "Informe um usuário válido." });
       return;
+
     }
     const verificaSenha = await bcrypt.compare(senhaAntiga, cliente.senha);
 
@@ -165,6 +167,7 @@ module.exports = class ClienteController {
 
     //validações
     //verifica se o usuário existe no BD
+
     if (!cliente) {
       res.status(422).json({ message: "Informe um usuário válido." });
       return;
@@ -175,6 +178,7 @@ module.exports = class ClienteController {
     if (clienteComCPF) {
       res.status(422).json({ message: "CPF em uso." });
       return;
+
     }
 
     if (!cpf) {
@@ -184,6 +188,7 @@ module.exports = class ClienteController {
 
     //verifica se apenas de números informados
     if (!/^[0-9]+$/.test(cpf)) {
+
       res.status(422).json({ message: "Informe apenas os números do CPF." });
       return;
     }
@@ -193,6 +198,13 @@ module.exports = class ClienteController {
     if (cpf.toString().length !== 11) {
       res.status(422).json({ message: "CPF incorreto." });
       return;
+    }
+    
+    //verifica a quantidade de dígitos
+
+    if(cpf.toString().length !== 11){
+      res.status(422).json({ message: "CPF incorreto." });
+      return
     }
 
     try {
@@ -204,6 +216,7 @@ module.exports = class ClienteController {
     }
   }
 
+
   static async updateTelefone(req, res) {
     const { id, telefone } = req.body;
 
@@ -214,6 +227,7 @@ module.exports = class ClienteController {
     if (!cliente) {
       res.status(422).json({ message: "Informe um usuário válido." });
       return;
+
     }
 
     if (!telefone) {
@@ -241,9 +255,11 @@ module.exports = class ClienteController {
       await Cliente.update({ telefone: telefone }, { where: { id: id } });
       res.status(201).json({ message: "Telefone atualizado com sucesso!" });
     } catch (error) {
+
       console.log(`Falha na atualização: ${error}`);
     }
   }
+
 
   static async deleteCliente(req, res) {
     const id = req.params.id;
@@ -272,4 +288,5 @@ module.exports = class ClienteController {
       return;
     }
   }
+
 };

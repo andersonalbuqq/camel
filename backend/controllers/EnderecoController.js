@@ -1,4 +1,3 @@
-const { where } = require("sequelize");
 const Cliente = require("../models/cliente");
 const Endereco = require("../models/endereco");
 
@@ -98,6 +97,7 @@ module.exports = class EnderecoController {
       res
         .status(201)
         .json({ message: "Endereco criado com sucesso!", endereco });
+
     } catch {
       res.status(500);
     }
@@ -134,6 +134,18 @@ module.exports = class EnderecoController {
 
     if (!cliente) {
       res.status(422).json({ message: "Usuário não encontrado!" });
+      return;
+    }
+
+    const enderecoCadastrado = await Endereco.findOne({
+      where: { id_cliente: id_cliente },
+    });
+
+    if (enderecoCadastrado) {
+      res.status(422).json({
+        message: "Usuário ja possui endereço cadastrado",
+        enderecoCadastrado,
+      });
       return;
     }
 
@@ -192,7 +204,9 @@ module.exports = class EnderecoController {
       return;
     }
 
+
     const endereco = {
+
       cep,
       rua,
       bairro,

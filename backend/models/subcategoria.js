@@ -12,6 +12,7 @@ const subcategoria = db.define("subcategoria", {
   },
 });
 
+
 subcategoria.belongsTo(Categoria, {foreignKey:"id_categoria"})
 Categoria.hasMany(subcategoria, {foreignKey:"id_categoria"})
 
