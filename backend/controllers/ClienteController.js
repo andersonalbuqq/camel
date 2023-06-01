@@ -52,7 +52,7 @@ module.exports = class ClienteController {
 
     try {
       await cliente.save();
-      res.status(201).json({ message: "Usuário criado com sucesso!" });
+      res.status(201).json({ message: "Usuário criado com sucesso!", cliente });
     } catch (error) {
       res
         .status(500)
@@ -122,9 +122,11 @@ module.exports = class ClienteController {
     //validações
 
     //verifica se o usuário existe no BD
-    if(!cliente){
-      res.status(422).json({message:"Informe um usuário válido."})
-      return
+
+    if (!cliente) {
+      res.status(422).json({ message: "Informe um usuário válido." });
+      return;
+
     }
     const verificaSenha = await bcrypt.compare(senhaAntiga, cliente.senha);
 
@@ -139,11 +141,9 @@ module.exports = class ClienteController {
     }
 
     if (novaSenha !== confirmaNovaSenha) {
-      res
-        .status(422)
-        .json({
-          message: "A senha e a confirmação da senhas devem ser iguais.",
-        });
+      res.status(422).json({
+        message: "A senha e a confirmação da senhas devem ser iguais.",
+      });
       return;
     }
 
@@ -167,20 +167,37 @@ module.exports = class ClienteController {
 
     //validações
     //verifica se o usuário existe no BD
-    if(!cliente){
-      res.status(422).json({message:"Informe um usuário válido."})
-      return
+
+    if (!cliente) {
+      res.status(422).json({ message: "Informe um usuário válido." });
+      return;
+    }
+
+    //Teste se o cpf esta associado a outro usuário
+    const clienteComCPF = await Cliente.findOne({ where: { cpf: cpf } });
+    if (clienteComCPF) {
+      res.status(422).json({ message: "CPF em uso." });
+      return;
+
     }
 
     if (!cpf) {
       res.status(422).json({ message: "O cpf deve ser informado" });
-      return
+      return;
     }
 
     //verifica se apenas de números informados
-    if (!(/^[0-9]+$/.test(cpf))){
+    if (!/^[0-9]+$/.test(cpf)) {
+
       res.status(422).json({ message: "Informe apenas os números do CPF." });
-      return
+      return;
+    }
+
+    //verifica a quantidade de dígitos
+
+    if (cpf.toString().length !== 11) {
+      res.status(422).json({ message: "CPF incorreto." });
+      return;
     }
     
     //verifica a quantidade de dígitos
@@ -190,50 +207,86 @@ module.exports = class ClienteController {
       return
     }
 
-    try{
-      await Cliente.update({cpf: cpf}, {where: {id:id }})
+    try {
+      await Cliente.update({ cpf: cpf }, { where: { id: id } });
       res.status(201).json({ message: "CPF atualizado com sucesso!" });
-    } catch(error){
+    } catch (error) {
+      res.status(500).json({ message: "Falha na atualização do cpf" });
       console.log(`Falha na atualização: ${error}`);
     }
   }
 
-  static async updateTelefone(req, res){
+
+  static async updateTelefone(req, res) {
     const { id, telefone } = req.body;
 
     const cliente = await Cliente.findByPk(id);
 
     //validações
     //verifica se o usuário existe no BD
-    if(!cliente){
-      res.status(422).json({message:"Informe um usuário válido."})
-      return
+    if (!cliente) {
+      res.status(422).json({ message: "Informe um usuário válido." });
+      return;
+
     }
 
     if (!telefone) {
       res.status(422).json({ message: "O telefone deve ser informado" });
-      return
+      return;
     }
 
     //verifica se apenas de números informados
-    if (!(/^[0-9]+$/.test(telefone))){
-      res.status(422).json({ message: "Informe apenas os números do Telefone." });
-      return
-    }
-    
-    //verifica a quantidade de dígitos
-    if(!(telefone.toString().length === 11 || telefone.toString().length === 10 )){
-      res.status(422).json({ message: "Informe o telefone com o DDD" });
-      return
+    if (!/^[0-9]+$/.test(telefone)) {
+      res
+        .status(422)
+        .json({ message: "Informe apenas os números do Telefone." });
+      return;
     }
 
-    try{
-      await Cliente.update({telefone: telefone}, {where: {id:id }})
+    //verifica a quantidade de dígitos
+    if (
+      !(telefone.toString().length === 11 || telefone.toString().length === 10)
+    ) {
+      res.status(422).json({ message: "Informe o telefone com o DDD" });
+      return;
+    }
+
+    try {
+      await Cliente.update({ telefone: telefone }, { where: { id: id } });
       res.status(201).json({ message: "Telefone atualizado com sucesso!" });
-    } catch(error){
+    } catch (error) {
+
       console.log(`Falha na atualização: ${error}`);
     }
   }
 
-  //Implemetar a função de exclusão de usuário após a criação completa do entes do BD.
+
+  static async deleteCliente(req, res) {
+    const id = req.params.id;
+    const senha = req.body.senha;
+
+    const cliente = await Cliente.findByPk(id);
+
+    if (!cliente) {
+      res.status(422).json({ message: "Usuário não encontrado!" });
+      return;
+    }
+
+    const verificaSenha = await bcrypt.compare(senha, cliente.senha);
+
+    if (!verificaSenha) {
+      res.status(422).json({ message: "Senha incorreta!" });
+      return;
+    }
+
+    try {
+      cliente.destroy();
+      res.status(200).json({ message: "Apagado com sucesso!" });
+      return;
+    } catch (error) {
+      res.status(500).json({ message: "Falha na exclusão!" });
+      return;
+    }
+  }
+
 };

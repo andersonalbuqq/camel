@@ -94,7 +94,10 @@ module.exports = class EnderecoController {
 
     try {
       await endereco.save();
-      res.status(201).json({ message: "Endereco criado com sucesso!" });
+      res
+        .status(201)
+        .json({ message: "Endereco criado com sucesso!", endereco });
+
     } catch {
       res.status(500);
     }
@@ -122,6 +125,11 @@ module.exports = class EnderecoController {
       req.body;
 
     //validações
+    if (!id_cliente) {
+      res.status(422).json({ message: "Informe o ID do cliente!" });
+      return;
+    }
+
     const cliente = await Cliente.findByPk(id_cliente);
 
     if (!cliente) {
@@ -196,7 +204,9 @@ module.exports = class EnderecoController {
       return;
     }
 
-    const endereco = new Endereco({
+
+    const endereco = {
+
       cep,
       rua,
       bairro,
@@ -204,9 +214,14 @@ module.exports = class EnderecoController {
       complemento,
       cidade,
       uf: uf.toUpperCase(),
-      id_cliente,
-    });
+    };
 
-    console.log(endereco);
+    try {
+      await Endereco.update(endereco, { where: { id_cliente: id_cliente } });
+      res.status(200).json({ message: "Endereço atualizado com sucesso!" });
+    } catch (error) {
+      res.status(500).json({ message: "Falha na atualização do endereço" });
+      console.log(`Falha na atualização: ${error}`);
+    }
   }
 };
