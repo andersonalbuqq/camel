@@ -13,6 +13,10 @@ router.get("/", HomeController.index);
 
 //Rotas de Produtos
 router.post("/produto", ProdutoController.create);
+router.get("/produto/:id", ProdutoController.getProduto)
+router.get("/produto/subcategoria/:id", ProdutoController.getProdutosBySubcategoria)
+router.put("/produto", ProdutoController.updateProduto)
+router.delete("/produto/:id", ProdutoController.deleteProduto)
 
 //Rotas de Clientes
 router.post("/cliente", ClienteController.create);

@@ -7,6 +7,11 @@ module.exports = class EnderecoController {
       req.body;
 
     //validações
+    if(!id_cliente){
+      res.status(422).json({ message: "O Usuário é obrigatório!" });
+      return;
+    }
+
     const cliente = await Cliente.findByPk(id_cliente);
 
     if (!cliente) {

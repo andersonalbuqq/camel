@@ -78,7 +78,17 @@ module.exports = class ClienteController {
   static async updateEmail(req, res) {
     const { id, email } = req.body;
 
+    if(!id){
+      res.status(422).json({ message: "O usuário é obrigatório" });
+      return;
+    }
+    
     const cliente = await Cliente.findByPk(id);
+    
+    if(!cliente){
+      res.status(422).json({ message: "Informe usuário válido" });
+      return;
+    }
 
     if (!email) {
       res.status(422).json({ message: "O email é obrigatório" });
@@ -162,11 +172,15 @@ module.exports = class ClienteController {
 
   static async updateCPF(req, res) {
     const { id, cpf } = req.body;
+    
+      //validações
+      //verifica se o usuário existe no BD
+    if(!id){
+      res.status(422).json({ message: "O usuário é obrigatório" });
+      return;
+    }
 
     const cliente = await Cliente.findByPk(id);
-
-    //validações
-    //verifica se o usuário existe no BD
 
     if (!cliente) {
       res.status(422).json({ message: "Informe um usuário válido." });
@@ -188,7 +202,6 @@ module.exports = class ClienteController {
 
     //verifica se apenas de números informados
     if (!/^[0-9]+$/.test(cpf)) {
-
       res.status(422).json({ message: "Informe apenas os números do CPF." });
       return;
     }
@@ -216,18 +229,21 @@ module.exports = class ClienteController {
     }
   }
 
-
   static async updateTelefone(req, res) {
     const { id, telefone } = req.body;
-
-    const cliente = await Cliente.findByPk(id);
-
+    
     //validações
     //verifica se o usuário existe no BD
+    if(!id){
+      res.status(422).json({ message: "O usuário é obrigatório" });
+      return;
+    }
+    
+    const cliente = await Cliente.findByPk(id);
+
     if (!cliente) {
       res.status(422).json({ message: "Informe um usuário válido." });
       return;
-
     }
 
     if (!telefone) {
@@ -260,7 +276,6 @@ module.exports = class ClienteController {
     }
   }
 
-
   static async deleteCliente(req, res) {
     const id = req.params.id;
     const senha = req.body.senha;
@@ -282,11 +297,9 @@ module.exports = class ClienteController {
     try {
       cliente.destroy();
       res.status(200).json({ message: "Apagado com sucesso!" });
-      return;
     } catch (error) {
       res.status(500).json({ message: "Falha na exclusão!" });
       return;
     }
   }
-
 };
