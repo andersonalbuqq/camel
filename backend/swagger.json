@@ -1,0 +1,779 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "VitalinoCode - API Camel",
+    "description": "API para gerenciamento de dados do Sistema Web da Camel.",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "vitalinocode@gmail.com"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "API de Testes"
+    },
+    {
+      "url": "http://www.vitalinocode.com.br/api-camel",
+      "description": "API de Produção"
+    }
+  ],
+  "paths": {
+    "/produto": {
+      "post": {
+        "summary": "Cadastro de Produto",
+        "description": "Essa rota é responsável por cadastrar um novo produto.",
+        "tags": ["Produto"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Produto"
+              },
+              "example": {
+                "nome": "Produto 1",
+                "preco": 100,
+                "descricao": "Descrição do Produto 1",
+                "ficha_tecnica": "Ficha Técnica do Produto 1",
+                "marca": "Marca do Produto 1",
+                "disponivel": true,
+                "id_subcategoria": 1
+              }
+            }
+          }
+        },
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "201": {
+            "description": "Produto cadastrado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Produto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      },
+      "put": {
+        "summary": "Alteração de Produto",
+        "description": "Essa rota é responsável por alterar um produto.",
+        "tags": ["Produto"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Produto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Produto alterado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Produto"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    },
+    "/produto/{id}": {
+      "get": {
+        "summary": "Consulta de Produto",
+        "description": "Essa rota é responsável por consultar um produto.",
+        "tags": ["Produto"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID do produto",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Produto consultado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Produto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Exclusão de Produto",
+        "description": "Essa rota é responsável por excluir um produto.",
+        "tags": ["Produto"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID do produto",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Produto não encontrado"
+          },
+          "200": {
+            "description": "Produto excluido com sucesso"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    },
+    "/produto/subcategoria/{id}": {
+      "get": {
+        "summary": "Consulta de Produto por Subcategoria",
+        "description": "Essa rota é responsável por consultar um produto por subcategoria.",
+        "tags": ["Produto"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID da subcategoria",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Produto consultado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Produto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cliente": {
+      "post": {
+        "summary": "Cadastro de Cliente",
+        "description": "Essa rota é responsável por cadastrar um novo cliente.",
+        "tags": ["Cliente"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Cliente"
+              }
+            }
+          }
+        },
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "201": {
+            "description": "Cliente cadastrado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cliente"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    },
+    "/cliente/{id}": {
+      "get": {
+        "summary": "Consulta de Cliente",
+        "description": "Essa rota é responsável por consultar um cliente.",
+        "tags": ["Cliente"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID do cliente",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Cliente consultado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Cliente"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Exclusão de Cliente",
+        "description": "Essa rota é responsável por excluir um cliente.",
+        "tags": ["Cliente"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID do cliente",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Cliente não encontrado"
+          },
+          "200": {
+            "description": "Cliente excluido com sucesso"
+          }
+        }
+      }
+    },
+    "/cliente/update/email": {
+      "put": {
+        "summary": "Alteração de Email",
+        "description": "Essa rota é responsável por alterar o email do cliente.",
+        "tags": ["Cliente"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "number" },
+                  "email": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Email alterado com sucesso"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    },
+    "/cliente/update/senha": {
+      "put": {
+        "summary": "Alteração de Senha",
+        "description": "Essa rota é responsável por alterar a senha do cliente.",
+        "tags": ["Cliente"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "number" },
+                  "senhaAntiga": { "type": "string" },
+                  "novaSenha": { "type": "string" },
+                  "confirmarNovaSenha": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Senha alterada com sucesso"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    },
+    "/cliente/update/cpf": {
+      "put": {
+        "summary": "Alteração de CPF",
+        "description": "Essa rota é responsável por alterar o CPF do cliente.",
+        "tags": ["Cliente"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "number" },
+                  "cpf": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "CPF alterado com sucesso"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    },
+    "/cliente/update/telefone": {
+      "put": {
+        "summary": "Alteração de Telefone",
+        "description": "Essa rota é responsável por alterar o telefone do cliente.",
+        "tags": ["Cliente"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "id": { "type": "number" },
+                  "telefone": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Telefone alterado com sucesso"
+          }
+        }
+      }
+    },
+    "/endereco": {
+      "post": {
+        "summary": "Cadastro de Endereço",
+        "description": "Essa rota é responsável por cadastrar um endereço.",
+        "tags": ["Endereço"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Endereco"
+              }
+            }
+          }
+        },
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "201": {
+            "description": "Endereço cadastrado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Endereco"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    },
+    "/endereco/update": {
+      "put": {
+        "summary": "Alteração de Endereço",
+        "description": "Essa rota é responsável por alterar um endereço.",
+        "tags": ["Endereço"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Endereco"
+              }
+            }
+          }
+        },
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Endereço alterado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Endereco"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    },
+    "/endereco/{id_cliente}": {
+      "get": {
+        "summary": "Consulta de Endereço",
+        "description": "Essa rota é responsável por consultar um endereço.",
+        "tags": ["Endereço"],
+        "parameters": [
+          {
+            "name": "id_cliente",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Endereço consultado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Endereco"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    },
+    "/categoria": {
+      "post": {
+        "summary": "Cadastro de Categoria",
+        "description": "Essa rota é responsável por cadastrar uma categoria.",
+        "tags": ["Categoria"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Categoria"
+              }
+            }
+          }
+        },
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "201": {
+            "description": "Categoria cadastrada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Categoria"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      },
+      "put": {
+        "summary": "Alteração de Categoria",
+        "description": "Essa rota é responsável por alterar uma categoria.",
+        "tags": ["Categoria"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Categoria"
+              }
+            }
+          }
+        },
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Categoria alterada com sucesso"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    },
+    "/categoria/{id}": {
+      "get": {
+        "summary": "Consulta de Categoria",
+        "description": "Essa rota é responsável por consultar uma categoria.",
+        "tags": ["Categoria"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Categoria consultada com sucesso"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Exclusão de Categoria",
+        "description": "Essa rota é responsável por excluir uma categoria.",
+        "tags": ["Categoria"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Categoria excluida com sucesso"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    },
+    "/subcategoria": {
+      "post": {
+        "summary": "Cadastro de Subcategoria",
+        "description": "Essa rota é responsável por cadastrar uma subcategoria.",
+        "tags": ["Sub-categoria"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Subcategoria"
+              }
+            }
+          }
+        },
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "201": {
+            "description": "Subcategoria cadastrada com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Subcategoria"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      },
+      "put": {
+        "summary": "Alteração de Sub-categoria",
+        "description": "Essa rota é responsável por alterar uma sub-categoria.",
+        "tags": ["Sub-categoria"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Subcategoria"
+              }
+            }
+          }
+        },
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Sub-categoria alterada com sucesso"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    },
+    "/subcategoria/{id}": {
+      "get": {
+        "summary": "Consulta de Sub-categoria",
+        "description": "Essa rota é responsável por consultar uma sub-categoria.",
+        "tags": ["Sub-categoria"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Sub-categoria consultada com sucesso"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Exclusão de Sub-categoria",
+        "description": "Essa rota é responsável por excluir uma sub-categoria.",
+        "tags": ["Sub-categoria"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "number"
+            }
+          }
+        ],
+        "responses": {
+          "422": {
+            "description": "Erro de validação"
+          },
+          "200": {
+            "description": "Sub-categoria excluida com sucesso"
+          },
+          "500": {
+            "description": "Erro interno do servidor"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Produto": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string" },
+          "preco": { "type": "number" },
+          "descricao": { "type": "string" },
+          "ficha_tecnica": { "type": "string" },
+          "marca": { "type": "string" },
+          "disponivel": { "type": "boolean" },
+          "id_subcategoria": { "type": "number" }
+        }
+      },
+      "Cliente": {
+        "type": "object",
+        "properties": {
+          "nome": { "type": "string" },
+          "email": { "type": "string" },
+          "senha": { "type": "string" }
+        }
+      },
+      "Endereco": {
+        "type": "object",
+        "properties": {
+          "cep": { "type": "string" },
+          "rua": { "type": "string" },
+          "bairro": { "type": "string" },
+          "numero": { "type": "number" },
+          "cidade": { "type": "string" },
+          "uf": { "type": "string" },
+          "complemento": { "type": "string" }
+        }
+      },
+      "Categoria": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "number" },
+          "nome": { "type": "string" }
+        }
+      },
+      "Subcategoria": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "number" },
+          "nome": { "type": "string" }
+        }
+      }
+    }
+  }
+}
