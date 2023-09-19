@@ -1,7 +1,21 @@
 const Produto = require("../models/produto");
 const Subcategoria = require("../models/subcategoria");
 
-module.exports = class ProdutoController {
+const validateNameExists = (name, expectedStatus) => {
+  if (!name) {
+    return {
+      message: 'Error',
+      status: false === expectedStatus
+    }
+  } else {
+    return {
+      message: 'Ok',
+      status: true === expectedStatus
+    }
+  }
+}
+
+class ProdutoController {
   static async create(req, res) {
     const {
       nome,
@@ -201,16 +215,16 @@ module.exports = class ProdutoController {
       id_subcategoria,
     };
 
-    try{
-      await Produto.update(produtoAtualizado, {where: {id: id}})
-      res.status(200).json({message: "Produto atualizado com sucesso.", produtoAtualizado})
-    }catch(error){
-      res.status(500).json("Erro de processamento") 
+    try {
+      await Produto.update(produtoAtualizado, { where: { id: id } })
+      res.status(200).json({ message: "Produto atualizado com sucesso.", produtoAtualizado })
+    } catch (error) {
+      res.status(500).json("Erro de processamento")
       console.log(error)
     }
   }
 
-  static async deleteProduto(req, res){
+  static async deleteProduto(req, res) {
     const id = req.params.id
 
     const produto = await Produto.findByPk(id);
@@ -219,13 +233,18 @@ module.exports = class ProdutoController {
       return;
     }
 
-    try{
+    try {
       produto.destroy()
       res.status(200).json({ message: "Apagado com sucesso!" });
-    } catch(error){
-      res.status(500).json({message:"Erro de processamento."})
+    } catch (error) {
+      res.status(500).json({ message: "Erro de processamento." })
       console.log(error);
     }
 
   }
 };
+
+module.exports = {
+  ProdutoController,
+  validateNameExists
+}
