@@ -1,19 +1,15 @@
 const Produto = require("../models/produto");
 const Subcategoria = require("../models/subcategoria");
 
-const validateNameExists = (name, expectedStatus) => {
-  if (!name) {
-    return {
-      message: 'Error',
-      status: false === expectedStatus
-    }
-  } else {
-    return {
-      message: 'Ok',
-      status: true === expectedStatus
-    }
-  }
-}
+const {
+  validateName,
+  validatePrice,
+  validateDescription,
+  validateDatasheet,
+  validateBrand,
+  validateAvailable,
+  validateSubcategory,
+} = require("../helpers/validations");
 
 class ProdutoController {
   static async create(req, res) {
@@ -27,57 +23,50 @@ class ProdutoController {
       id_subcategoria,
     } = req.body;
 
-    // validações
-    if (!nome) {
-      res.status(422).json({ message: "O nome é obrigatório." });
-      return;
+    // Bloco de validações
+    const validateNameResult = validateName(nome);
+    if (validateNameResult) {
+      return res.status(validateNameResult.status).json(validateNameResult);
     }
 
-    if (!preco) {
-      res.status(422).json({ message: "O preco é obrigatório." });
-      return;
+    const validatePriceResult = validatePrice(preco);
+    if (validatePriceResult) {
+      return res.status(validatePriceResult.status).json(validatePriceResult);
     }
 
-    if (isNaN(preco)) {
-      res.status(422).json({ message: "Informe um valor numérico." });
-      return;
+    const validateDescriptionResult = validateDescription(descricao);
+    if (validateDescriptionResult) {
+      return res
+        .status(validateDescriptionResult.status)
+        .json(validateDescriptionResult);
     }
 
-    if (!descricao) {
-      res.status(422).json({ message: "A descrição é obrigatória" });
-      return;
+    const validateDatasheetResult = validateDatasheet(ficha_tecnica);
+    if (validateDatasheetResult) {
+      return res
+        .status(validateDatasheetResult.status)
+        .json(validateDatasheetResult);
     }
 
-    if (!ficha_tecnica) {
-      res.status(422).json({ message: "A ficha técnica é obrigatória" });
-      return;
+    const validateBrandResult = validateBrand(marca);
+    if (validateBrandResult) {
+      return res.status(validateBrandResult.status).json(validateBrandResult);
     }
 
-    if (!marca) {
-      res.status(422).json({ message: "A marca é obrigatória" });
-      return;
+    const validateAvailableResult = validateAvailable(disponivel);
+    if (validateAvailableResult) {
+      return res
+        .status(validateAvailableResult.status)
+        .json(validateAvailableResult);
     }
 
-    if (disponivel == undefined) {
-      res.status(422).json({ message: "A disponibilidade é obrigatória" });
-      return;
-    }
-
-    if (typeof disponivel !== "boolean") {
-      res.status(422).json({ message: "É esperado um valor booleano" });
-      return;
-    }
-
-    if (!id_subcategoria) {
-      res.status(422).json({ message: "A subcategoria é obrigatória" });
-      return;
-    }
-
-    const subcategoriaExiste = await Subcategoria.findByPk(id_subcategoria);
-
-    if (!subcategoriaExiste) {
-      res.status(422).json({ message: "Informe uma subcategoria válida" });
-      return;
+    const validateSubcategoryResult = await validateSubcategory(
+      id_subcategoria
+    );
+    if (validateSubcategoryResult) {
+      return res
+        .status(validateSubcategoryResult.status)
+        .json(validateSubcategoryResult);
     }
 
     const produto = new Produto({
@@ -216,16 +205,19 @@ class ProdutoController {
     };
 
     try {
-      await Produto.update(produtoAtualizado, { where: { id: id } })
-      res.status(200).json({ message: "Produto atualizado com sucesso.", produtoAtualizado })
+      await Produto.update(produtoAtualizado, { where: { id: id } });
+      res.status(200).json({
+        message: "Produto atualizado com sucesso.",
+        produtoAtualizado,
+      });
     } catch (error) {
-      res.status(500).json("Erro de processamento")
-      console.log(error)
+      res.status(500).json("Erro de processamento");
+      console.log(error);
     }
   }
 
   static async deleteProduto(req, res) {
-    const id = req.params.id
+    const id = req.params.id;
 
     const produto = await Produto.findByPk(id);
     if (!produto) {
@@ -234,17 +226,15 @@ class ProdutoController {
     }
 
     try {
-      produto.destroy()
+      produto.destroy();
       res.status(200).json({ message: "Apagado com sucesso!" });
     } catch (error) {
-      res.status(500).json({ message: "Erro de processamento." })
+      res.status(500).json({ message: "Erro de processamento." });
       console.log(error);
     }
-
   }
-};
+}
 
 module.exports = {
   ProdutoController,
-  validateNameExists
-}
+};
