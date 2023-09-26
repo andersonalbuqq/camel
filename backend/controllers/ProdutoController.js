@@ -237,5 +237,4 @@ class ProdutoController {
 
 module.exports = {
   ProdutoController,
-  validateNameExists,
 };
