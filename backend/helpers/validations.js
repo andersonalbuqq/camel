@@ -70,6 +70,14 @@ function validateBrand(brand) {
       validationStatus: false,
     };
   }
+
+  if (typeof(brand) !== "string") {
+    return {
+      status: 422,
+      message: "Informe uma string",
+      validationStatus: false,
+    };
+  }
   return null;
 }
 
@@ -97,6 +105,14 @@ async function validateSubcategory(subcategory) {
     return {
       status: 422,
       message: "A subcategoria é obrigatória.",
+      validationStatus: false,
+    };
+  }
+
+  if (isNaN(subcategory)) {
+    return {
+      status: 422,
+      message: "A subcategoria deve ser um number.",
       validationStatus: false,
     };
   }

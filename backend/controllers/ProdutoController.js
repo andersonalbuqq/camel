@@ -104,11 +104,11 @@ class ProdutoController {
   static async getProdutosBySubcategoria(req, res) {
     const id = req.params.id;
 
-    const subcategoria = await Subcategoria.findByPk(id);
-    console.log("Entrou");
-    if (!subcategoria) {
-      res.status(422).json({ message: "Informe uma subcategoria válida" });
-      return;
+    const validateSubcategoryResult = await validateSubcategory(id);
+    if (validateSubcategoryResult) {
+      return res
+        .status(validateSubcategoryResult.status)
+        .json(validateSubcategoryResult);
     }
 
     const produtos = await Produto.findAll({ where: { id_subcategoria: id } });
