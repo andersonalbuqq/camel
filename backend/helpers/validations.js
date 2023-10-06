@@ -1,6 +1,6 @@
 const Subcategoria = require("../models/subcategoria");
 const Cliente = require("../models/cliente");
-const Endereco = require("../models/endereco")
+const Endereco = require("../models/endereco");
 
 // Validações do módulo de produto
 
@@ -12,6 +12,15 @@ function validateName(name) {
       validationStatus: false,
     };
   }
+
+  if (typeof name !== "string") {
+    return {
+      status: 422,
+      message: "Informe uma string no campo de Nome.",
+      validationStatus: false,
+    };
+  }
+
   return null;
 }
 
@@ -24,10 +33,10 @@ function validatePrice(price) {
     };
   }
 
-  if (typeof (price) !== "number") {
+  if (typeof price !== "number") {
     return {
       status: 422,
-      message: "Informe um valor numérico.",
+      message: "Informe um valor numérico no campo de Preço.",
       validationStatus: false,
     };
   }
@@ -44,10 +53,10 @@ function validateDescription(description) {
     };
   }
 
-  if (typeof (description) !== "string") {
+  if (typeof description !== "string") {
     return {
       status: 422,
-      message: "Informe uma string",
+      message: "Informe uma string no campo de Descrição.",
       validationStatus: false,
     };
   }
@@ -63,6 +72,14 @@ function validateDatasheet(datasheet) {
       validationStatus: false,
     };
   }
+
+  if (typeof datasheet !== "string") {
+    return {
+      status: 422,
+      message: "Informe uma string, na ficha técnica.",
+      validationStatus: false,
+    };
+  }
   return null;
 }
 
@@ -71,6 +88,14 @@ function validateBrand(brand) {
     return {
       status: 422,
       message: "A marca é obrigatória.",
+      validationStatus: false,
+    };
+  }
+
+  if (typeof brand !== "string") {
+    return {
+      status: 422,
+      message: "Informe uma string, no campo de Marca.",
       validationStatus: false,
     };
   }
@@ -89,7 +114,7 @@ function validateAvailable(available) {
   if (typeof available !== "boolean") {
     return {
       status: 422,
-      message: "É esperado um valor booleano.",
+      message: "É esperado um valor booleano, no campo de Disponibilidade.",
       validationStatus: false,
     };
   }
@@ -101,6 +126,14 @@ async function validateSubcategory(subcategory) {
     return {
       status: 422,
       message: "A subcategoria é obrigatória.",
+      validationStatus: false,
+    };
+  }
+
+  if (isNaN(subcategory)) {
+    return {
+      status: 422,
+      message: "A subcategoria deve ser um number.",
       validationStatus: false,
     };
   }
@@ -118,6 +151,27 @@ async function validateSubcategory(subcategory) {
 }
 
 
+
+function validateId(id) {
+  if (!id) {
+    return {
+      status: 422,
+      message: "O id é obrigatório.",
+      validationStatus: false,
+    };
+  }
+
+  if (typeof id !== "number") {
+    return {
+      status: 422,
+      message: "O id deve ser do tipo number",
+      validationStatus: false,
+    };
+  }
+
+  return null;
+}
+
 // Validações do módulo de cliente
 // Faltando validar os campos email e comfirmaSenha
 
@@ -126,45 +180,44 @@ function validateString(nome) {
     return {
       status: 422,
       message: "O nome é obrigatório",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
-  if (typeof (nome) != 'string') {
+  if (typeof nome != "string") {
     return {
       status: 422,
       message: "O Campo tem que ser do tipo Texto",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
-  return null
+  return null;
 }
 
 function validatePassword(senha) {
   if (!senha) {
     return {
       status: 422,
-      message: "O senha é obrigatório",
-      validationStatus: false
-    }
+      message: "A senha é obrigatória",
+      validationStatus: false,
+    };
   }
   if (senha.length < 4) {
     return {
       status: 422,
       message: "Senha muito curta",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
 
   if (senha.length > 16) {
     return {
       status: 422,
       message: "Senha muito grande",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
-  return null
+  return null;
 }
-
 
 // Validações do módulo de endereço
 
@@ -185,22 +238,22 @@ function validateCep(cep) {
     return {
       status: 422,
       message: "O CEP deve ser informado",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
-  if (typeof (cep) != 'number') {
+  if (typeof cep != "number") {
     return {
       status: 422,
       message: "O Campo CEP tem que ser do tipo Númerico",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
   if (cep.toString().length !== 8) {
     return {
       status: 404,
       message: "CEP Inválido",
       validationStatus: false,
-    }
+    };
   }
 
   return null;
@@ -211,17 +264,17 @@ function validateRua(rua) {
     return {
       status: 422,
       message: "A rua deve ser informada",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
   if (typeof (rua) !== 'string') {
     return {
       status: 422,
       message: "O Campo rua tem que ser do tipo String",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
-  return null
+  return null;
 }
 
 function validateBairro(bairro) {
@@ -229,17 +282,17 @@ function validateBairro(bairro) {
     return {
       status: 422,
       message: "O bairro deve ser informada",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
   if (typeof (bairro) !== 'string') {
     return {
       status: 422,
       message: "O Campo bairro tem que ser do tipo String",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
-  return null
+  return null;
 }
 
 function validateNumero(numero) {
@@ -247,25 +300,25 @@ function validateNumero(numero) {
     return {
       status: 422,
       message: "O número deve ser informado",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
-  if (typeof (numero) != 'number') {
+  if (typeof numero != "number") {
     return {
       status: 422,
       message: "O Campo número tem que ser do tipo Númerico",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
   //verifica se apenas de números informados
   if (!/^[0-9]+$/.test(numero)) {
     return {
       status: 422,
       message: "Informe apenas números",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
-  return null
+  return null;
 }
 
 function validateCidade(cidade) {
@@ -273,41 +326,41 @@ function validateCidade(cidade) {
     return {
       status: 422,
       message: "A cidade deve ser informada",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
-  if (typeof cidade !== 'string') {
+  if (typeof cidade !== "string") {
     return {
       status: 422,
       message: "O Campo cidade tem que ser do tipo String",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
-  return null
+  return null;
 }
 function validateEstado(uf) {
   if (!uf) {
     return {
       status: 422,
       message: "O estado deve ser informado",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
   if (uf.length !== 2) {
     return {
       status: 422,
       message: "Estado inválido",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
-  if (typeof uf !== 'string') {
+  if (typeof uf !== "string") {
     return {
       status: 422,
       message: "O Campo estado tem que ser do tipo String",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
-  return null
+  return null;
 }
 
 function validateGet(endereco) {
@@ -437,6 +490,7 @@ function validateUf(uf) {
 }
 
 module.exports = {
+  validateId,
   validateName,
   validatePrice,
   validateDescription,
