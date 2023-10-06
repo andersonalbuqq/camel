@@ -267,7 +267,7 @@ function validateRua(rua) {
       validationStatus: false,
     };
   }
-  if (typeof rua !== "string") {
+  if (typeof (rua) !== 'string') {
     return {
       status: 422,
       message: "O Campo rua tem que ser do tipo String",
@@ -285,7 +285,7 @@ function validateBairro(bairro) {
       validationStatus: false,
     };
   }
-  if (typeof bairro !== "string") {
+  if (typeof (bairro) !== 'string') {
     return {
       status: 422,
       message: "O Campo bairro tem que ser do tipo String",
@@ -363,6 +363,132 @@ function validateEstado(uf) {
   return null;
 }
 
+function validateGet(endereco) {
+  if (!endereco) {
+    return {
+      status: 422,
+      message: "O usuário não possui endereço cadastrado!",
+      validationStatus: false
+
+    }
+  } return null
+}
+
+function validateIdCliente(id_cliente) {
+  if (!id_cliente) {
+    return {
+      status: 422,
+      message: "Informe o ID do cliente!",
+      validationStatus: false
+    }
+  } return null
+}
+
+
+function validateCep(cep) {
+  if (!cep) {
+    return {
+      status: 422,
+      message: "O CEP deve ser informado",
+      validationStatus: false
+    }
+  }
+
+  //verifica se apenas de números informados
+  if (!/^[0-9]+$/.test(cep)) {
+    return {
+      status: 422,
+      message: "Informe apenas os números do CEP.",
+      validationStatus: false
+    }
+  }
+
+  //verifica a quantidade de dígitos
+  if (cep.toString().length !== 8) {
+    return {
+      status: 422,
+      message: "CEP incorreto.",
+      validationStatus: false
+    }
+  } return null
+}
+function validateRua(rua) {
+  if (!rua) {
+    return {
+      status: 422,
+      message: "A rua deve ser informada",
+      validationStatus: false
+    }
+  }
+  if (typeof (rua) !== 'string') {
+    return {
+      status: 422,
+      message: "O Campo rua tem que ser do tipo String",
+      validationStatus: false
+    }
+  }
+  return null
+}
+function validateBairro(bairro) {
+  if (!bairro) {
+    return {
+      status: 422,
+      message: "O bairro deve ser informada",
+      validationStatus: false
+    }
+  }
+  if (typeof (bairro) !== 'string') {
+    return {
+      status: 422,
+      message: "O Campo bairro tem que ser do tipo String",
+      validationStatus: false
+    }
+  }
+  return null
+}
+function validateNumero(numero) {
+  if (!numero) {
+    return {
+      status: 422,
+      message: "O número da residência deve ser informado",
+      validationStatus: false
+    }
+  }
+  //verifica se apenas de números informados
+  if (!/^[0-9]+$/.test(numero)) {
+    return {
+      status: 422,
+      message: "Informe apenas números",
+      validationStatus: false
+    }
+  } return null
+}
+function validateCidade(cidade) {
+  if (!cidade) {
+    return {
+      status: 422,
+      message: "A cidade deve ser informada",
+      validationStatus: false
+    }
+  } return null
+}
+function validateUf(uf) {
+  if (!uf) {
+    return {
+      status: 422,
+      message: "O estado deve ser informado",
+      validationStatus: false
+    }
+  }
+  if (uf.length !== 2) {
+    return {
+      status: 422,
+      message: "Informe apenas a sigla do estado",
+      validationStatus: false
+    }
+  } return null
+}
+
 module.exports = {
   validateId,
   validateName,
@@ -381,4 +507,6 @@ module.exports = {
   validateNumero,
   validateCidade,
   validateEstado,
+  validateGet,
+  validateUf
 };
