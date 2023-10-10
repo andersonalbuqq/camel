@@ -1,6 +1,6 @@
-const Subcategoria = require("../models/subcategoria");
-const Cliente = require("../models/cliente");
-const Endereco = require("../models/endereco");
+// const Subcategoria = require("../models/subcategoria");
+// const Cliente = require("../models/cliente");
+// const Endereco = require("../models/endereco");
 
 // Validações do módulo de produto
 
@@ -138,14 +138,14 @@ async function validateSubcategory(subcategory) {
     };
   }
 
-  const hasSubcategory = await Subcategoria.findByPk(subcategory);
-  if (!hasSubcategory) {
-    return {
-      status: 404,
-      message: "Informe uma subcategoria válida",
-      validationStatus: false,
-    };
-  }
+  // const hasSubcategory = await Subcategoria.findByPk(subcategory);
+  // if (!hasSubcategory) {
+  //   return {
+  //     status: 404,
+  //     message: "Informe uma subcategoria válida",
+  //     validationStatus: false,
+  //   };
+  // }
 
   return null;
 }
@@ -230,50 +230,6 @@ function validateIdCliente(id_cliente) {
     };
   }
 
-  return null;
-}
-
-function validateCep(cep) {
-  if (!cep) {
-    return {
-      status: 422,
-      message: "O CEP deve ser informado",
-      validationStatus: false,
-    };
-  }
-  if (typeof cep != "number") {
-    return {
-      status: 422,
-      message: "O Campo CEP tem que ser do tipo Númerico",
-      validationStatus: false,
-    };
-  }
-  if (cep.toString().length !== 8) {
-    return {
-      status: 404,
-      message: "CEP Inválido",
-      validationStatus: false,
-    };
-  }
-
-  return null;
-}
-
-function validateRua(rua) {
-  if (!rua) {
-    return {
-      status: 422,
-      message: "A rua deve ser informada",
-      validationStatus: false,
-    };
-  }
-  if (typeof (rua) !== 'string') {
-    return {
-      status: 422,
-      message: "O Campo rua tem que ser do tipo String",
-      validationStatus: false,
-    };
-  }
   return null;
 }
 
@@ -374,17 +330,6 @@ function validateGet(endereco) {
   } return null
 }
 
-function validateIdCliente(id_cliente) {
-  if (!id_cliente) {
-    return {
-      status: 422,
-      message: "Informe o ID do cliente!",
-      validationStatus: false
-    }
-  } return null
-}
-
-
 function validateCep(cep) {
   if (!cep) {
     return {
@@ -429,49 +374,7 @@ function validateRua(rua) {
   }
   return null
 }
-function validateBairro(bairro) {
-  if (!bairro) {
-    return {
-      status: 422,
-      message: "O bairro deve ser informada",
-      validationStatus: false
-    }
-  }
-  if (typeof (bairro) !== 'string') {
-    return {
-      status: 422,
-      message: "O Campo bairro tem que ser do tipo String",
-      validationStatus: false
-    }
-  }
-  return null
-}
-function validateNumero(numero) {
-  if (!numero) {
-    return {
-      status: 422,
-      message: "O número da residência deve ser informado",
-      validationStatus: false
-    }
-  }
-  //verifica se apenas de números informados
-  if (!/^[0-9]+$/.test(numero)) {
-    return {
-      status: 422,
-      message: "Informe apenas números",
-      validationStatus: false
-    }
-  } return null
-}
-function validateCidade(cidade) {
-  if (!cidade) {
-    return {
-      status: 422,
-      message: "A cidade deve ser informada",
-      validationStatus: false
-    }
-  } return null
-}
+
 function validateUf(uf) {
   if (!uf) {
     return {

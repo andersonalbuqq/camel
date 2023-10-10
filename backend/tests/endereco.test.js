@@ -22,7 +22,7 @@ const {
   validateEstado,
   validateBairro,
   validateGet
-} = require("../helpers/validations");
+} = require("../helpers/validations.js");
 
 
 
