@@ -1,4 +1,4 @@
-// const Subcategoria = require("../models/subcategoria");
+const Subcategoria = require("../models/subcategoria");
 // const Cliente = require("../models/cliente");
 // const Endereco = require("../models/endereco");
 
@@ -9,7 +9,6 @@ function validateName(name) {
     return {
       status: 422,
       message: "O nome é obrigatório.",
-      validationStatus: false,
     };
   }
 
@@ -17,7 +16,6 @@ function validateName(name) {
     return {
       status: 422,
       message: "Informe uma string no campo de Nome.",
-      validationStatus: false,
     };
   }
 
@@ -29,7 +27,6 @@ function validatePrice(price) {
     return {
       status: 422,
       message: "O preço é obrigatório.",
-      validationStatus: false,
     };
   }
 
@@ -37,7 +34,6 @@ function validatePrice(price) {
     return {
       status: 422,
       message: "Informe um valor numérico no campo de Preço.",
-      validationStatus: false,
     };
   }
 
@@ -49,7 +45,6 @@ function validateDescription(description) {
     return {
       status: 422,
       message: "A descrição é obrigatória.",
-      validationStatus: false,
     };
   }
 
@@ -57,7 +52,6 @@ function validateDescription(description) {
     return {
       status: 422,
       message: "Informe uma string no campo de Descrição.",
-      validationStatus: false,
     };
   }
 
@@ -69,7 +63,6 @@ function validateDatasheet(datasheet) {
     return {
       status: 422,
       message: "A ficha técnica é obrigatória.",
-      validationStatus: false,
     };
   }
 
@@ -77,7 +70,6 @@ function validateDatasheet(datasheet) {
     return {
       status: 422,
       message: "Informe uma string, na ficha técnica.",
-      validationStatus: false,
     };
   }
   return null;
@@ -88,7 +80,6 @@ function validateBrand(brand) {
     return {
       status: 422,
       message: "A marca é obrigatória.",
-      validationStatus: false,
     };
   }
 
@@ -96,7 +87,6 @@ function validateBrand(brand) {
     return {
       status: 422,
       message: "Informe uma string, no campo de Marca.",
-      validationStatus: false,
     };
   }
   return null;
@@ -107,15 +97,13 @@ function validateAvailable(available) {
     return {
       status: 422,
       message: "A disponibilidade é obrigatória.",
-      validationStatus: false,
     };
   }
 
   if (typeof available !== "boolean") {
     return {
       status: 422,
-      message: "É esperado um valor booleano, no campo de Disponibilidade.",
-      validationStatus: false,
+      message: "Informe um booleano, no campo de Disponibilidade.",
     };
   }
   return null;
@@ -126,31 +114,26 @@ async function validateSubcategory(subcategory) {
     return {
       status: 422,
       message: "A subcategoria é obrigatória.",
-      validationStatus: false,
     };
   }
 
-  if (isNaN(subcategory)) {
+  if (typeof(subcategory) !== "number") {
     return {
       status: 422,
-      message: "A subcategoria deve ser um number.",
-      validationStatus: false,
+      message: "Informe um valor numérico no campo de Subcategoria.",
     };
   }
 
-  // const hasSubcategory = await Subcategoria.findByPk(subcategory);
-  // if (!hasSubcategory) {
-  //   return {
-  //     status: 404,
-  //     message: "Informe uma subcategoria válida",
-  //     validationStatus: false,
-  //   };
-  // }
+  const hasSubcategory = await Subcategoria.findByPk(subcategory);
+  if (!hasSubcategory) {
+    return {
+      status: 404,
+      message: "Informe uma subcategoria válida",
+    };
+  }
 
   return null;
 }
-
-
 
 function validateId(id) {
   if (!id) {
@@ -241,7 +224,7 @@ function validateBairro(bairro) {
       validationStatus: false,
     };
   }
-  if (typeof (bairro) !== 'string') {
+  if (typeof bairro !== "string") {
     return {
       status: 422,
       message: "O Campo bairro tem que ser do tipo String",
@@ -324,10 +307,10 @@ function validateGet(endereco) {
     return {
       status: 422,
       message: "O usuário não possui endereço cadastrado!",
-      validationStatus: false
-
-    }
-  } return null
+      validationStatus: false,
+    };
+  }
+  return null;
 }
 
 function validateCep(cep) {
@@ -335,8 +318,8 @@ function validateCep(cep) {
     return {
       status: 422,
       message: "O CEP deve ser informado",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
 
   //verifica se apenas de números informados
@@ -344,8 +327,8 @@ function validateCep(cep) {
     return {
       status: 422,
       message: "Informe apenas os números do CEP.",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
 
   //verifica a quantidade de dígitos
@@ -353,26 +336,27 @@ function validateCep(cep) {
     return {
       status: 422,
       message: "CEP incorreto.",
-      validationStatus: false
-    }
-  } return null
+      validationStatus: false,
+    };
+  }
+  return null;
 }
 function validateRua(rua) {
   if (!rua) {
     return {
       status: 422,
       message: "A rua deve ser informada",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
-  if (typeof (rua) !== 'string') {
+  if (typeof rua !== "string") {
     return {
       status: 422,
       message: "O Campo rua tem que ser do tipo String",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
-  return null
+  return null;
 }
 
 function validateUf(uf) {
@@ -380,16 +364,17 @@ function validateUf(uf) {
     return {
       status: 422,
       message: "O estado deve ser informado",
-      validationStatus: false
-    }
+      validationStatus: false,
+    };
   }
   if (uf.length !== 2) {
     return {
       status: 422,
       message: "Informe apenas a sigla do estado",
-      validationStatus: false
-    }
-  } return null
+      validationStatus: false,
+    };
+  }
+  return null;
 }
 
 module.exports = {
@@ -411,5 +396,5 @@ module.exports = {
   validateCidade,
   validateEstado,
   validateGet,
-  validateUf
+  validateUf,
 };
