@@ -1,4 +1,5 @@
 const Subcategoria = require("../models/subcategoria");
+const Produto = require("../models/produto");
 // const Cliente = require("../models/cliente");
 // const Endereco = require("../models/endereco");
 
@@ -93,7 +94,7 @@ function validateBrand(brand) {
 }
 
 function validateAvailable(available) {
-  if (!available) {
+  if (typeof available !== "boolean" && !available) {
     return {
       status: 422,
       message: "A disponibilidade é obrigatória.",
@@ -117,7 +118,7 @@ async function validateSubcategory(subcategory) {
     };
   }
 
-  if (typeof(subcategory) !== "number") {
+  if (typeof subcategory !== "number") {
     return {
       status: 422,
       message: "Informe um valor numérico no campo de Subcategoria.",
@@ -140,15 +141,30 @@ function validateId(id) {
     return {
       status: 422,
       message: "O id é obrigatório.",
-      validationStatus: false,
     };
   }
 
   if (typeof id !== "number") {
     return {
       status: 422,
-      message: "O id deve ser do tipo number",
-      validationStatus: false,
+      message: "Informe um valor do tipo numérico no Id.",
+    };
+  }
+
+  return null;
+}
+
+async function validateProduct(id) {
+  const validateIdResult = validateId(id);
+  if (validateIdResult) {
+    return validateIdResult;
+  }
+
+  const hasProduct = await Produto.findByPk(id);
+  if (!hasProduct) {
+    return {
+      status: 404,
+      message: "Informe um produto válido",
     };
   }
 
@@ -386,6 +402,7 @@ module.exports = {
   validateBrand,
   validateAvailable,
   validateSubcategory,
+  validateProduct,
   validateString,
   validatePassword,
   validateIdCliente,
