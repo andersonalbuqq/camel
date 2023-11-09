@@ -103,7 +103,7 @@ header .searchBar {
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 1rem;  
 
   width: 100%;
   background-color: #fff;

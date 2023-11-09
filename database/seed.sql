@@ -20,16 +20,16 @@ INSERT INTO endereco VALUES (DEFAULT, 8, '55845640', 'Agamenon Magalhães', 'Cen
 INSERT INTO endereco VALUES (DEFAULT, 9, '55955640', 'Vigario Freire', 'Centro', 885,'-','São Caetano','PE');
 INSERT INTO endereco VALUES (DEFAULT, 10, '55955980', 'Lourial José da Silva', 'Vila Kennedy', 175,'Próximo ao mercado Y','São Caetano','PE');
 
-INSERT INTO categoria VALUES(DEFAULT, 'Fios e Cabos');
-INSERT INTO categoria VALUES(DEFAULT, 'Iluminação');
-INSERT INTO categoria VALUES(DEFAULT, 'Segunraça');
-INSERT INTO categoria VALUES(DEFAULT, 'Tomadas e Interruptores');
-INSERT INTO categoria VALUES(DEFAULT, 'Energia Solar');
-INSERT INTO categoria VALUES(DEFAULT, 'Acessórios e Conexões');
-INSERT INTO categoria VALUES(DEFAULT, 'Adaptadores e plugs');
-INSERT INTO categoria VALUES(DEFAULT, 'Resistências');
-INSERT INTO categoria VALUES(DEFAULT, 'Transformadores');
-INSERT INTO categoria VALUES(DEFAULT, 'Contactores');
+INSERT INTO categoria VALUES (DEFAULT, 'Fios e Cabos','2023-09-27 15:13:53.962-03', '2023-09-27 15:13:53.962-03' );
+INSERT INTO categoria VALUES (DEFAULT, 'Iluminação','2023-09-27 15:13:53.962-03', '2023-09-27 15:13:53.962-03' );
+INSERT INTO categoria VALUES (DEFAULT, 'Segurança','2023-09-27 15:13:53.962-03', '2023-09-27 15:13:53.962-03' );
+INSERT INTO categoria VALUES (DEFAULT, 'Tomadas e Interruptores','2023-09-27 15:13:53.962-03', '2023-09-27 15:13:53.962-03' );
+INSERT INTO categoria VALUES (DEFAULT, 'Energia Solar','2023-09-27 15:13:53.962-03', '2023-09-27 15:13:53.962-03' );
+INSERT INTO categoria VALUES (DEFAULT, 'Acessórios e Conexões','2023-09-27 15:13:53.962-03', '2023-09-27 15:13:53.962-03' );
+INSERT INTO categoria VALUES (DEFAULT, 'Adaptadores e plugs','2023-09-27 15:13:53.962-03', '2023-09-27 15:13:53.962-03' );
+INSERT INTO categoria VALUES (DEFAULT, 'Resistências','2023-09-27 15:13:53.962-03', '2023-09-27 15:13:53.962-03' );
+INSERT INTO categoria VALUES (DEFAULT, 'Transformadores','2023-09-27 15:13:53.962-03', '2023-09-27 15:13:53.962-03');
+INSERT INTO categoria VALUES (DEFAULT, 'Contactores','2023-09-27 15:13:53.962-03', '2023-09-27 15:13:53.962-03' );
 
 INSERT INTO subcategoria VALUES(DEFAULT, 1, 'Fio');
 INSERT INTO subcategoria VALUES(DEFAULT, 1, 'Cabo');
