@@ -1,6 +1,6 @@
 const Subcategoria = require("../models/subcategoria");
 const Produto = require("../models/produto");
-// const Cliente = require("../models/cliente");
+const Cliente = require("../models/cliente");
 // const Endereco = require("../models/endereco");
 
 // Validações do módulo de produto
@@ -174,6 +174,32 @@ async function validateProduct(id) {
 // Validações do módulo de cliente
 // Faltando validar os campos email e comfirmaSenha
 
+function validateEmail(email) {
+  if (!email) {
+    return {
+      status: 422,
+      message: "O email é obrigatório.",
+    };
+  }
+
+  if (typeof email !== "string") {
+    return {
+      status: 422,
+      message: "Informe uma string no campo de Email.",
+    };
+  }
+
+  const regex = /\S+@\S+\.\S+/;
+  if (!regex.test(email)) {
+    return {
+      status: 422,
+      message: "Email inválido.",
+    };
+  }
+
+  return null;
+}
+
 function validateString(nome) {
   if (!nome) {
     return {
@@ -192,30 +218,53 @@ function validateString(nome) {
   return null;
 }
 
-function validatePassword(senha) {
-  if (!senha) {
+function validatePassword(password) {
+  if (!password) {
     return {
       status: 422,
       message: "A senha é obrigatória",
-      validationStatus: false,
-    };
-  }
-  if (senha.length < 4) {
-    return {
-      status: 422,
-      message: "Senha muito curta",
-      validationStatus: false,
     };
   }
 
-  if (senha.length > 16) {
+  const regex = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,10})/;
+  if (!regex.test(password)) {
     return {
       status: 422,
-      message: "Senha muito grande",
-      validationStatus: false,
+      message:
+        "A senha deve possuir entre 4 e 10 dígitos, com letras maiúsculas e minúsculas e ao menos um número.",
     };
   }
   return null;
+}
+
+function validateConfirmPassword(password, confirmPassword) {
+  if (!confirmPassword) {
+    return {
+      status: 422,
+      message: "A confirmação da senha é obrigatória",
+    };
+  }
+
+  if (password !== confirmPassword) {
+    return {
+      status: 422,
+      message: "A confirmação da senha deve ser igual a senha.",
+    };
+  }
+  return null
+}
+
+async function isEmailAvailable(email){
+  const emailAvailable = await Cliente.findOne({ where: { email: email } });
+
+  if (emailAvailable) {
+    return {
+      status: 422,
+      message: "O email informado já está em uso.",
+    };
+  }
+
+  return null
 }
 
 // Validações do módulo de endereço
@@ -405,6 +454,7 @@ module.exports = {
   validateProduct,
   validateString,
   validatePassword,
+  validateConfirmPassword,
   validateIdCliente,
   validateCep,
   validateRua,
@@ -414,4 +464,6 @@ module.exports = {
   validateEstado,
   validateGet,
   validateUf,
+  validateEmail,
+  isEmailAvailable
 };

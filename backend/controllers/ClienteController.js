@@ -3,14 +3,105 @@ const Cliente = require("../models/cliente");
 //biblioteca responsável pela criptografia
 const bcrypt = require("bcrypt");
 
+const Createtoken = require("../helpers/create-token");
 
 const {
+  validateName,
+  validateEmail,
+  isEmailAvailable,
   validateString,
   validatePassword,
+  validateConfirmPassword,
 } = require("../helpers/validations");
 
 module.exports = class ClienteController {
-  //Cria um cliente
+  static async register(req, res) {
+    const { name, email, password, confirmPassword } = req.body;
+
+    //validations
+    const validateNameResult = validateName(name);
+    if (validateNameResult) {
+      return res.status(validateNameResult.status).json(validateNameResult);
+    }
+
+    const validateEmailResult = validateEmail(email);
+    if (validateEmailResult) {
+      return res.status(validateEmailResult.status).json(validateEmailResult);
+    }
+
+    const isEmailAvailableResult = await isEmailAvailable(email);
+    if (isEmailAvailableResult) {
+      return res
+        .status(isEmailAvailableResult.status)
+        .json(isEmailAvailableResult);
+    }
+
+    const validatePasswordResult = validatePassword(password);
+    if (validatePasswordResult) {
+      return res
+        .status(validatePasswordResult.status)
+        .json(validatePasswordResult);
+    }
+
+    const validateConfirmPasswordResult = validateConfirmPassword(
+      password,
+      confirmPassword
+    );
+    if (validateConfirmPasswordResult) {
+      return res
+        .status(validateConfirmPasswordResult.status)
+        .json(validateConfirmPasswordResult);
+    }
+
+    //Encrypt user password
+    const salt = bcrypt.genSaltSync(10);
+    const hash = bcrypt.hashSync(password, salt);
+
+    try {
+      const client = await Cliente.create({
+        nome: name,
+        email,
+        senha: hash,
+      });
+      Createtoken(client, req, res);
+    } catch (error) {
+      res
+        .status(500)
+        .json({ message: `falha na criação do cliente. ${error}` });
+    }
+  }
+
+  static async login(req, res) {
+    const { email, password } = req.body;
+
+    const validateEmailResult = validateEmail(email);
+    if (validateEmailResult) {
+      return res.status(validateEmailResult.status).json(validateEmailResult);
+    }
+
+    const validatePasswordResult = validatePassword(password);
+    if (validatePasswordResult) {
+      return res
+        .status(validatePasswordResult.status)
+        .json(validatePasswordResult);
+    }
+
+    const client = await Cliente.findOne({ where: { email } });
+
+    if (!client) {
+      res.status(404).json({ message: "Usuário não cadastrado ou senha incorreta!" });
+      return;
+    }
+
+    const validPassword = bcrypt.compareSync(password, client.senha);
+    if (!validPassword) {
+      res.status(404).json({ message: "Usuário não cadastrado ou senha incorreta!" });
+      return;
+    }
+
+    Createtoken(client, req, res);
+  }
+
   static async create(req, res) {
     //recebe os dados da requisição
     const { nome, email, senha, confirmaSenha } = req.body;
@@ -22,8 +113,6 @@ module.exports = class ClienteController {
       return res.status(validateNomeResult.status).json(validateNomeResult);
     }
 
-
-
     if (!email) {
       res.status(422).json({ message: "O email é obrigatório" });
       return;
@@ -31,10 +120,10 @@ module.exports = class ClienteController {
 
     const validatePasswordResult = validatePassword(senha);
     if (validatePasswordResult) {
-      return res.status(validatePasswordResult.status).json(validatePasswordResult);
+      return res
+        .status(validatePasswordResult.status)
+        .json(validatePasswordResult);
     }
-
-
 
     if (senha !== confirmaSenha) {
       res.status(422).json({
@@ -150,7 +239,6 @@ module.exports = class ClienteController {
     if (!cliente) {
       res.status(422).json({ message: "Informe um usuário válido." });
       return;
-
     }
     const verificaSenha = await bcrypt.compare(senhaAntiga, cliente.senha);
 
@@ -206,7 +294,6 @@ module.exports = class ClienteController {
     if (clienteComCPF) {
       res.status(422).json({ message: "CPF em uso." });
       return;
-
     }
 
     if (!cpf) {
@@ -231,7 +318,7 @@ module.exports = class ClienteController {
 
     if (cpf.toString().length !== 11) {
       res.status(422).json({ message: "CPF incorreto." });
-      return
+      return;
     }
 
     try {
@@ -285,7 +372,6 @@ module.exports = class ClienteController {
       await Cliente.update({ telefone: telefone }, { where: { id: id } });
       res.status(201).json({ message: "Telefone atualizado com sucesso!" });
     } catch (error) {
-
       console.log(`Falha na atualização: ${error}`);
     }
   }

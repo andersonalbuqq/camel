@@ -23,7 +23,9 @@ module.exports = class CategoriaController {
 
     try {
       await categoria.save();
-      res.status(201).json({ message: "Categoria criada com sucesso!", categoria });
+      res
+        .status(201)
+        .json({ message: "Categoria criada com sucesso!", categoria });
     } catch (error) {
       res.status(500).json({ message: "Falha na criação da categoria" });
       console.log(error);
@@ -42,6 +44,12 @@ module.exports = class CategoriaController {
     }
 
     res.status(200).json(categoria);
+  }
+
+  static async getAllCategories(req, res) {
+    const categories = await Categoria.findAll();
+
+    res.status(200).json(categories);
   }
 
   static async updateCategoria(req, res) {
@@ -95,11 +103,9 @@ module.exports = class CategoriaController {
 
     try {
       await categoria.destroy();
-      res
-        .status(200)
-        .json({
-          message: `Categoria: (${categoria.nome}), excluida com sucesso!`,
-        });
+      res.status(200).json({
+        message: `Categoria: (${categoria.nome}), excluida com sucesso!`,
+      });
     } catch (error) {
       res.status(500).json({ message: "Falha na exclusão" });
       console.log(error);
